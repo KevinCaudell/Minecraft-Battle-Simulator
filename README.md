@@ -13,7 +13,7 @@ Minecraft battle simulator built using Python to demonstrate object-oriented pro
   - Classes & Objects
   - Inheritences (Custom classes & built-in classes)
   - Encapsulation
-- Randome Module
+- Random Module
 - Game logic
   
   
