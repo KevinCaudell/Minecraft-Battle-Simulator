@@ -1,23 +1,23 @@
-<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36" version="29.1.0">
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36" version="29.2.9">
   <diagram name="Page-1" id="cN-SGWcXdhtreVCvEGRR">
-    <mxGraphModel dx="2256" dy="1903" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="2350" dy="1696" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
         <mxCell id="nHij4JL4-rl58s0cAymL-1" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="Player" vertex="1">
-          <mxGeometry height="260" width="210" x="-400" y="-240" as="geometry" />
+          <mxGeometry height="290" width="210" x="-400" y="-300" as="geometry" />
         </mxCell>
-        <mxCell id="nHij4JL4-rl58s0cAymL-2" parent="nHij4JL4-rl58s0cAymL-1" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="name: str&lt;div&gt;attack_damage: int&lt;/div&gt;&lt;div&gt;defense: float&lt;/div&gt;&lt;div&gt;health: int&lt;/div&gt;&lt;div&gt;attack_name: str&lt;/div&gt;&lt;div&gt;special_ability_name: str&lt;/div&gt;&lt;div&gt;special_ability_damage: int&lt;/div&gt;&lt;div&gt;special_ability_counter: int&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;/div&gt;" vertex="1">
+        <mxCell id="nHij4JL4-rl58s0cAymL-2" parent="nHij4JL4-rl58s0cAymL-1" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="name: str&lt;div&gt;attack_damage: int&lt;/div&gt;&lt;div&gt;defense: float&lt;/div&gt;&lt;div&gt;health: int&lt;/div&gt;&lt;div&gt;attack_name: str&lt;/div&gt;&lt;div&gt;special_ability_name: str&lt;/div&gt;&lt;div&gt;special_ability_damage: int&lt;/div&gt;&lt;div&gt;special_ability_counter: int&lt;/div&gt;&lt;div&gt;max_health: int&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;/div&gt;" vertex="1">
           <mxGeometry height="134" width="210" y="26" as="geometry" />
         </mxCell>
         <mxCell id="nHij4JL4-rl58s0cAymL-3" parent="nHij4JL4-rl58s0cAymL-1" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" value="" vertex="1">
           <mxGeometry height="8" width="210" y="160" as="geometry" />
         </mxCell>
-        <mxCell id="nHij4JL4-rl58s0cAymL-4" parent="nHij4JL4-rl58s0cAymL-1" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="attack(enemy_object): VOID&lt;div&gt;isAlive(): bool&lt;/div&gt;&lt;div&gt;heal_potion(): VOID&lt;/div&gt;&lt;div&gt;special_attack(enemy_object): VOID&lt;/div&gt;&lt;div&gt;healthBar():&amp;nbsp;&lt;/div&gt;&lt;div&gt;stats(): str&lt;/div&gt;" vertex="1">
-          <mxGeometry height="92" width="210" y="168" as="geometry" />
+        <mxCell id="nHij4JL4-rl58s0cAymL-4" parent="nHij4JL4-rl58s0cAymL-1" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="attack(enemy_object): VOID&lt;div&gt;isAlive(): bool&lt;/div&gt;&lt;div&gt;heal(): VOID&lt;/div&gt;&lt;div&gt;special_attack(enemy_object): VOID&lt;/div&gt;&lt;div&gt;healthBar(): VOID&lt;/div&gt;&lt;div&gt;stats(): str&lt;/div&gt;&lt;div&gt;defense_ability(): VOID&lt;/div&gt;&lt;div&gt;take_damage(damage): VOID&lt;/div&gt;" vertex="1">
+          <mxGeometry height="122" width="210" y="168" as="geometry" />
         </mxCell>
         <mxCell id="nHij4JL4-rl58s0cAymL-5" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="Enemy" vertex="1">
-          <mxGeometry height="240" width="220" x="640" y="-460" as="geometry" />
+          <mxGeometry height="250" width="220" x="640" y="-460" as="geometry" />
         </mxCell>
         <mxCell id="nHij4JL4-rl58s0cAymL-6" parent="nHij4JL4-rl58s0cAymL-5" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="name: str&lt;div&gt;attack_damage: int&lt;/div&gt;&lt;div&gt;defense: float&lt;/div&gt;&lt;div&gt;health: int&lt;/div&gt;&lt;div&gt;attack_name: str&lt;/div&gt;&lt;div&gt;special_ability_name: str&lt;/div&gt;&lt;div&gt;special_ability_damage: int&lt;/div&gt;&lt;div&gt;special_ability_count: int&lt;/div&gt;&lt;div&gt;type: str&lt;/div&gt;" vertex="1">
           <mxGeometry height="136" width="220" y="26" as="geometry" />
@@ -25,8 +25,8 @@
         <mxCell id="nHij4JL4-rl58s0cAymL-7" parent="nHij4JL4-rl58s0cAymL-5" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" value="" vertex="1">
           <mxGeometry height="8" width="220" y="162" as="geometry" />
         </mxCell>
-        <mxCell id="nHij4JL4-rl58s0cAymL-8" parent="nHij4JL4-rl58s0cAymL-5" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="attack(Player_Object): VOID&lt;div&gt;isAlive(): bool&lt;/div&gt;&lt;div&gt;special_attack(Player_object): VOID&lt;/div&gt;&lt;div&gt;healthBar(): VOID&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" vertex="1">
-          <mxGeometry height="70" width="220" y="170" as="geometry" />
+        <mxCell id="nHij4JL4-rl58s0cAymL-8" parent="nHij4JL4-rl58s0cAymL-5" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="attack(Player_Object): VOID&lt;div&gt;isAlive(): bool&lt;/div&gt;&lt;div&gt;special_attack(Player_object): VOID&lt;/div&gt;&lt;div&gt;healthBar(): VOID&lt;/div&gt;&lt;div&gt;take_damage(damage): VOID&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="220" y="170" as="geometry" />
         </mxCell>
         <mxCell id="nHij4JL4-rl58s0cAymL-126" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.095;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;" target="nHij4JL4-rl58s0cAymL-4">
           <mxGeometry relative="1" as="geometry">
@@ -58,7 +58,7 @@
         <mxCell id="lCBSTGdvSD_9Z3ecYuaK-3" parent="lCBSTGdvSD_9Z3ecYuaK-1" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" value="" vertex="1">
           <mxGeometry height="8" width="200" y="26" as="geometry" />
         </mxCell>
-        <mxCell id="lCBSTGdvSD_9Z3ecYuaK-4" parent="lCBSTGdvSD_9Z3ecYuaK-1" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="&lt;div&gt;removeEffect(enemy_object): VOID&lt;/div&gt;&lt;div&gt;extra_heal_potion(): VOID&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" vertex="1">
+        <mxCell id="lCBSTGdvSD_9Z3ecYuaK-4" parent="lCBSTGdvSD_9Z3ecYuaK-1" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="&lt;div&gt;removeEffect(enemy_object): VOID&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" vertex="1">
           <mxGeometry height="96" width="200" y="34" as="geometry" />
         </mxCell>
         <mxCell id="lCBSTGdvSD_9Z3ecYuaK-5" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="Potion" vertex="1">
