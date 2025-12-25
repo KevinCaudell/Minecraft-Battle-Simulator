@@ -75,7 +75,6 @@ class Warrior(Player):
         print(f'{self._name}\'s defense has been increased by 10!')
         return None
 
-
 class Archer(Player):
     def __init__(self, *args):
         super().__init__(*args)
@@ -97,3 +96,100 @@ class Mage(Player):
 
 
 ### MOB CLASSES ###
+
+class Mob:
+    ability_count = 4
+
+    def __init__(self, name, attack_damage, defense, health, attack_name, special_ability_name, 
+                 special_ability_damage, type):
+        self._name = name
+        self._attack_damage = attack_damage
+        self._defense = defense
+        self._health = health
+        self._attack_name = attack_name
+        self._special_ability_name = special_ability_name
+        self._special_ability_damage = special_ability_damage
+        self._type = type
+
+    def attack(self, player):
+        pass
+
+    def isAlive(self):
+        pass
+
+    def special_attack(self, player):
+        pass
+
+    def healthBar(self):
+        pass
+
+    def take_damage(self):
+        pass
+
+class Zombie(Mob):
+    pass
+
+class Skeleton(Mob):
+    pass
+
+class Spider(Mob):
+    pass
+
+class Creeper(Mob):
+    pass
+
+class Witch(Mob):
+    pass
+
+class Pillager(Mob):
+    pass
+
+class Warden(Mob):
+    pass
+
+class Blaze(Mob):
+    pass
+
+class WitherSkeleton(Mob):
+    pass
+
+class Hoglin(Mob):
+    pass
+
+class Ghast(Mob):
+    pass
+
+class MagmaCube(Mob):
+    pass
+
+class Brute(Mob):
+    pass
+
+class Wither(Mob):
+    pass
+
+class Enderman(Mob):
+    pass
+
+class Silverfish(Mob):
+    pass
+
+class Endermite(Mob):
+    pass
+
+class Skulker(Mob):
+    pass
+
+class EnderDragon(Mob):
+    pass
+
+### Mob Container Class ###
+
+class MobRealms(list):
+    Overworld = []
+    Nether = []
+    End = []
+
+    def __init__(self, name='Mob Realm Container'):
+        super().__init__()
+        self._name = name
