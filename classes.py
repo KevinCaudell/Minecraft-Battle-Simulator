@@ -1,103 +1,99 @@
-### IMPORTS ###
-
-import math
-
 ### PLAYER CLASSES ###
 class Player:
     skill_counter = 3
+
     def __init__(self, name, attack_damage, defense, health, attack_name, 
                  special_ability_name, special_ability_damage):
-        self.__name = name
-        self.__attack_damage = attack_damage
-        self.__defense = defense
-        self.__health = health
-        self.__max_health = health
-        self.__attack_name = attack_name
-        self.__special_ability_name = special_ability_name
-        self.__special_ability_damage = special_ability_damage
+        self._name = name
+        self._attack_damage = attack_damage
+        self._defense = defense
+        self._health = health
+        self._max_health = health
+        self._attack_name = attack_name
+        self._special_ability_name = special_ability_name
+        self._special_ability_damage = special_ability_damage
 
     def attack(self, enemy):
         """Applied damage to enemy object."""
-        enemy.__health -= self.__attack_damage
-        print(f'{self.__name} attacked {enemy.__name} using {self.__attack_name} dealing {self.__attack_damage}')
+        enemy._health -= self._attack_damage
+        print(f'{self._name} attacked {enemy._name} using {self._attack_name} dealing {self._attack_damage}')
         return None
     
     def isAlive(self):
         """Checks to see if the character is alive."""
-        if self.__health <= 0:
-            return False
-        return True
+        return self._health > 0
 
     def heal(self):
-        """Adds at most 50 health points to character."""
-        if self.__health == self.__max_health:
+        """Heals up to 50 health points to character."""
+        if self._health == self._max_health:
             print('Health is full')
             return None
         
-        if self.__health <= self.__max_health - 50:
-            self.__health += 50
-            print(f'Healed 50hp\nPlayer health at {self.__health}')
+        if self._health <= self._max_health - 50:
+            self._health += 50
+            print(f'Healed 50hp\nPlayer health at {self._health}')
             return None
         
-        print(f'Healed {self.__max_health - self.__health}hp\nPlayer health is full')
-        self.__health = self.__max_health
+        print(f'Healed {self._max_health - self._health}hp\nPlayer health is full')
+        self._health = self._max_health
+        return None
 
     def special_attack(self, enemy):
         """Uses special ability on enemy dealing unique damage to them."""
-        enemy.__health -= self.__special_ability_damage
-        print(f'{self.__name} attacked {enemy.__name} using {self.__special_ability_name} dealing {self.__special_ability_damage}')
+        enemy._health -= self._special_ability_damage
+        print(f'{self._name} used {self._special_ability_name} on {enemy._name} dealing {self._special_ability_damage}')
         return None
 
     def health_bar(self):
         """Prints a health bar for the characters health to max health ratio"""
         bar_length = 10
-        health_ratio = self.__health / self.__max_health
+        health_ratio = self._health / self._max_health
         filled_length = int(bar_length * health_ratio)
         bar_health = '[#]' * filled_length + '[ ]' * (bar_length - filled_length)
-        print(f"{self.__name}'s Health Bar: {bar_health} {self.__health}/{self.__max_health}\n")
+        print(f"{self._name}'s Health: {bar_health} {self._health}/{self._max_health}\n")
 
     def stats(self):
         """Displays statistics for character type."""
-        print(f'Name: {self.__name}')
-        print(f'Health: {self.__max_health}')
-        print(f'Defense: {self.__defense}')
-        print(f'Attack Damage: {self.__attack_damage}')
-        print(f'Ability Damage: {self.__special_ability_damage}')
+        print(f'Name: {self._name}')
+        print(f'Health: {self._max_health}')
+        print(f'Defense: {self._defense}')
+        print(f'Attack Damage: {self._attack_damage}')
+        print(f'Ability Damage: {self._special_ability_damage}')
 
     def take_damage(self, damage):
-        self.__health -= damage
+        """Applies damage to character from enemies attack."""
+        self._health -= damage
         return None
 
 class Warrior(Player):
-    def __init__(self, name, attack_damage, defense, health, attack_name, 
-                 special_ability_name, special_ability_damage):
-        super.__init__(name, attack_damage, defense, health, attack_name, 
-                       special_ability_name, special_ability_damage)
+    def __init__(self, *args):
+        super().__init__(*args)
 
-    def skill():
-        '''Adds extra resistence to oncoming attacks to reduce damage taken.'''
-        self.__defense += 10
-        print(f'{self.__name}\'s defense has been increased by 10.')
+    def skill(self):
+        '''Gains resistence by increasing defense by 10.'''
+        self._defense += 10
+        print(f'{self._name}\'s defense has been increased by 10!')
+        return None
 
 
 class Archer(Player):
-    def __init__(self, name, attack_damage, defense, health, attack_name, 
-                 special_ability_name, special_ability_damage):
-        super.__init__(name, attack_damage, defense, health, attack_name, 
-                       special_ability_name, special_ability_damage)
+    def __init__(self, *args):
+        super().__init__(*args)
 
-    def skill():
-        """Dodges oncoming attack to avoid taking damage."""
-
+    def skill(self):
+        """Dodges attack."""
+        print(f'{self._name} dodged attack!')
+        return None
 
 class Mage(Player):
-    def __init__(self, name, attack_damage, defense, health, attack_name, 
-                 special_ability_name, special_ability_damage):
-        super.__init__(name, attack_damage, defense, health, attack_name, 
-                       special_ability_name, special_ability_damage)
+    def __init__(self, *args):
+        super().__init__(*args)
 
-    def skill():
-        """Blocking the enemy attack and counter attacks the enemy with their own attack for 75% of it's original damage."""
+    def skill(self, enemy, damage):
+        """Blocking the enemy attack and counter attacks the enemy with their own attack for 25% of it's original damage."""
+        return_damage = round(damage * 0.25)
+        enemy._health -= return_damage
+        print(f'{self._name} blocked attack and countered, dealing {return_damage}hp to {enemy._name}')
 
 
 ### MOB CLASSES ###
