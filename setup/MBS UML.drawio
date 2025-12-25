@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36" version="29.2.9">
   <diagram name="Page-1" id="cN-SGWcXdhtreVCvEGRR">
-    <mxGraphModel dx="2350" dy="1696" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="1317" dy="1704" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -16,10 +16,10 @@
         <mxCell id="nHij4JL4-rl58s0cAymL-4" parent="nHij4JL4-rl58s0cAymL-1" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="attack(enemy_object): VOID&lt;div&gt;isAlive(): bool&lt;/div&gt;&lt;div&gt;heal(): VOID&lt;/div&gt;&lt;div&gt;special_attack(enemy_object): VOID&lt;/div&gt;&lt;div&gt;healthBar(): VOID&lt;/div&gt;&lt;div&gt;stats(): str&lt;/div&gt;&lt;div&gt;defense_ability(): VOID&lt;/div&gt;&lt;div&gt;take_damage(damage): VOID&lt;/div&gt;" vertex="1">
           <mxGeometry height="122" width="210" y="168" as="geometry" />
         </mxCell>
-        <mxCell id="nHij4JL4-rl58s0cAymL-5" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="Enemy" vertex="1">
+        <mxCell id="nHij4JL4-rl58s0cAymL-5" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="Mob" vertex="1">
           <mxGeometry height="250" width="220" x="640" y="-460" as="geometry" />
         </mxCell>
-        <mxCell id="nHij4JL4-rl58s0cAymL-6" parent="nHij4JL4-rl58s0cAymL-5" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="name: str&lt;div&gt;attack_damage: int&lt;/div&gt;&lt;div&gt;defense: float&lt;/div&gt;&lt;div&gt;health: int&lt;/div&gt;&lt;div&gt;attack_name: str&lt;/div&gt;&lt;div&gt;special_ability_name: str&lt;/div&gt;&lt;div&gt;special_ability_damage: int&lt;/div&gt;&lt;div&gt;special_ability_count: int&lt;/div&gt;&lt;div&gt;type: str&lt;/div&gt;" vertex="1">
+        <mxCell id="nHij4JL4-rl58s0cAymL-6" parent="nHij4JL4-rl58s0cAymL-5" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="name: str&lt;div&gt;attack_damage: int&lt;/div&gt;&lt;div&gt;defense: float&lt;/div&gt;&lt;div&gt;health: int&lt;/div&gt;&lt;div&gt;attack_name: str&lt;/div&gt;&lt;div&gt;special_ability_name: str&lt;/div&gt;&lt;div&gt;special_ability_damage: int&lt;/div&gt;&lt;div&gt;&lt;u&gt;special_ability_count: int&lt;/u&gt;&lt;/div&gt;&lt;div&gt;type: str&lt;/div&gt;" vertex="1">
           <mxGeometry height="136" width="220" y="26" as="geometry" />
         </mxCell>
         <mxCell id="nHij4JL4-rl58s0cAymL-7" parent="nHij4JL4-rl58s0cAymL-5" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" value="" vertex="1">
@@ -338,7 +338,7 @@
         <mxCell id="nHij4JL4-rl58s0cAymL-77" parent="nHij4JL4-rl58s0cAymL-74" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="ability(Person_Object): VOID" vertex="1">
           <mxGeometry height="26" width="170" y="34" as="geometry" />
         </mxCell>
-        <mxCell id="nHij4JL4-rl58s0cAymL-82" parent="K08I1wAda_V-xlOgApLv-41" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="TheWither" vertex="1">
+        <mxCell id="nHij4JL4-rl58s0cAymL-82" parent="K08I1wAda_V-xlOgApLv-41" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="Wither" vertex="1">
           <mxGeometry height="60" width="170" x="110" y="250" as="geometry" />
         </mxCell>
         <mxCell id="nHij4JL4-rl58s0cAymL-84" parent="nHij4JL4-rl58s0cAymL-82" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" value="" vertex="1">
