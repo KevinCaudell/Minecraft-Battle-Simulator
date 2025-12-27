@@ -53,10 +53,11 @@ class Player:
     def stats(self):
         """Displays statistics for character type."""
         print(f'Name: {self._name}')
-        print(f'Health: {self._max_health}')
-        print(f'Defense: {self._defense}')
-        print(f'Attack Damage: {self._attack_damage}')
-        print(f'Ability Damage: {self._special_ability_damage}')
+        print(f'    Health: {self._max_health}')
+        print(f'    Defense: {self._defense}')
+        print(f'    Attack Damage: {self._attack_damage}')
+        print(f'    Ability Damage: {self._special_ability_damage}')
+        print()
 
     def take_damage(self, damage):
         """Applies damage to character from enemies attack."""
