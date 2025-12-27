@@ -318,9 +318,19 @@ class MobRealms(list):
         
         if isinstance(mob_obj, Overworld):
             self[0].append(mob_obj)
+            return None
 
         if isinstance(mob_obj, Nether):
             self[1].append(mob_obj)
+            return None
 
         if isinstance(mob_obj, End):
             self[2].append(mob_obj)
+            return None
+
+    def remove(self, mob_obj):
+        for realm in self:
+            for mob in realm:
+                if mob_obj == mob:
+                    self[realm].remove(mob_obj)
+                    return None
