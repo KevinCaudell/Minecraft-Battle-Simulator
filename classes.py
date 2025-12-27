@@ -112,19 +112,33 @@ class Mob:
         self._type = type
 
     def attack(self, player):
-        pass
+        """Applied damage to player object."""
+        player._health -= self._attack_damage
+        print(f'{self._name} attacked {player._name} using {self._attack_name} dealing {self._attack_damage}')
+        return None
 
     def isAlive(self):
-        pass
+        """Checks to see if the mob is alive."""
+        return self._health > 0
 
     def special_attack(self, player):
-        pass
+        """Uses special ability on player dealing unique damage to them."""
+        player._health -= self._special_ability_damage
+        print(f'{self._name} used {self._special_ability_name} on {player._name} dealing {self._special_ability_damage}')
+        return None
 
     def healthBar(self):
-        pass
+        """Prints a health bar for the mobs health to max health ratio"""
+        bar_length = 10
+        health_ratio = self._health / self._max_health
+        filled_length = int(bar_length * health_ratio)
+        bar_health = '[#]' * filled_length + '[ ]' * (bar_length - filled_length)
+        print(f"{self._name}'s Health: {bar_health} {self._health}/{self._max_health}\n")
 
-    def take_damage(self):
-        pass
+    def take_damage(self, damage):
+        """Applies damage to mob from player attack."""
+        self._health -= damage
+        return None
 
 class Zombie(Mob):
     pass
