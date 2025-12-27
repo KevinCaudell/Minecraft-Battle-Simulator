@@ -16,7 +16,7 @@ class Player:
     def attack(self, enemy):
         """Applied damage to enemy object."""
         print(f'{self._name} attacked {enemy._name} using {self._attack_name} dealing {self._attack_damage}')
-        return self._attack_damage
+        return int(self._attack_damage)
     
     def isAlive(self):
         """Checks to see if the character is alive."""
@@ -39,9 +39,8 @@ class Player:
 
     def special_attack(self, enemy):
         """Uses special ability on enemy dealing unique damage to them."""
-        enemy._health -= self._special_ability_damage
         print(f'{self._name} used {self._special_ability_name} on {enemy._name} dealing {self._special_ability_damage}')
-        return None
+        return int(self._special_ability_damage)
 
     def health_bar(self):
         """Prints a health bar for the characters health to max health ratio"""
@@ -113,7 +112,7 @@ class Mob:
     def attack(self, player):
         """Applied damage to player object."""
         print(f'{self._name} attacked {player._name} using {self._attack_name} dealing {self._attack_damage}')
-        return self._attack_damage
+        return int(self._attack_damage)
 
     def isAlive(self):
         """Checks to see if the mob is alive."""
@@ -121,9 +120,8 @@ class Mob:
 
     def special_attack(self, player):
         """Uses special ability on player dealing unique damage to them."""
-        player._health -= self._special_ability_damage
         print(f'{self._name} used {self._special_ability_name} on {player._name} dealing {self._special_ability_damage}')
-        return None
+        return int(self._special_ability_damage)
 
     def healthBar(self):
         """Prints a health bar for the mobs health to max health ratio"""
@@ -144,7 +142,7 @@ class Zombie(Mob):
 
     def ability(self, player):
         print(f"{self._name} used {self._special_ability_name} on {player._name} dealing {self._special_ability_damage}!")
-        return self._special_ability_damage
+        return int(self._special_ability_damage)
 
 class Skeleton(Mob):
     def __init__(self, *args):
@@ -152,7 +150,7 @@ class Skeleton(Mob):
 
     def ability(self, player):
         print(f"{self._name} used {self._special_ability_name} on {player._name} dealing {self._special_ability_damage}!")
-        return self._special_ability_damage
+        return int(self._special_ability_damage)
 
 class Spider(Mob):
     def __init__(self, *args):
@@ -160,7 +158,7 @@ class Spider(Mob):
 
     def ability(self, player):
         print(f"{self._name} used {self._special_ability_name} on {player._name} dealing {self._special_ability_damage}!")
-        return self._special_ability_damage
+        return int(self._special_ability_damage)
 
 class Creeper(Mob):
     def __init__(self, *args):
@@ -168,7 +166,7 @@ class Creeper(Mob):
 
     def ability(self, player):
         print(f"{self._name} used {self._special_ability_name} on {player._name} dealing {self._special_ability_damage}!")
-        return self._special_ability_damage
+        return int(self._special_ability_damage)
 
 class Witch(Mob):
     def __init__(self, *args):
@@ -176,7 +174,7 @@ class Witch(Mob):
 
     def ability(self, player):
         print(f"{self._name} used {self._special_ability_name} on {player._name} dealing {self._special_ability_damage}!")
-        return self._special_ability_damage
+        return int(self._special_ability_damage)
 
 class Pillager(Mob):
     def __init__(self, *args):
@@ -184,7 +182,7 @@ class Pillager(Mob):
 
     def ability(self, player):
         print(f"{self._name} used {self._special_ability_name} on {player._name} dealing {self._special_ability_damage}!")
-        return self._special_ability_damage
+        return int(self._special_ability_damage)
 
 class Warden(Mob):
     def __init__(self, *args):
@@ -192,7 +190,7 @@ class Warden(Mob):
 
     def ability(self, player):
         print(f"{self._name} used {self._special_ability_name} on {player._name} dealing {self._special_ability_damage}!")
-        return self._special_ability_damage
+        return int(self._special_ability_damage)
 
 class Blaze(Mob):
     def __init__(self, *args):
@@ -200,7 +198,7 @@ class Blaze(Mob):
 
     def ability(self, player):
         print(f"{self._name} used {self._special_ability_name} on {player._name} dealing {self._special_ability_damage}!")
-        return self._special_ability_damage
+        return int(self._special_ability_damage)
 
 class WitherSkeleton(Mob):
     def __init__(self, *args):
@@ -208,7 +206,7 @@ class WitherSkeleton(Mob):
 
     def ability(self, player):
         print(f"{self._name} used {self._special_ability_name} on {player._name} dealing {self._special_ability_damage}!")
-        return self._special_ability_damage
+        return int(self._special_ability_damage)
 
 class Hoglin(Mob):
     def __init__(self, *args):
@@ -216,7 +214,7 @@ class Hoglin(Mob):
 
     def ability(self, player):
         print(f"{self._name} used {self._special_ability_name} on {player._name} dealing {self._special_ability_damage}!")
-        return self._special_ability_damage
+        return int(self._special_ability_damage)
 
 class Ghast(Mob):
     def __init__(self, *args):
@@ -224,7 +222,7 @@ class Ghast(Mob):
 
     def ability(self, player):
         print(f"{self._name} used {self._special_ability_name} on {player._name} dealing {self._special_ability_damage}!")
-        return self._special_ability_damage
+        return int(self._special_ability_damage)
 
 class MagmaCube(Mob):
     def __init__(self, *args):
@@ -232,7 +230,7 @@ class MagmaCube(Mob):
 
     def ability(self, player):
         print(f"{self._name} used {self._special_ability_name} on {player._name} dealing {self._special_ability_damage}!")
-        return self._special_ability_damage
+        return int(self._special_ability_damage)
 
 class Brute(Mob):
     def __init__(self, *args):
@@ -240,7 +238,7 @@ class Brute(Mob):
 
     def ability(self, player):
         print(f"{self._name} used {self._special_ability_name} on {player._name} dealing {self._special_ability_damage}!")
-        return self._special_ability_damage
+        return int(self._special_ability_damage)
 
 class Wither(Mob):
     def __init__(self, *args):
@@ -248,7 +246,7 @@ class Wither(Mob):
 
     def ability(self, player):
         print(f"{self._name} used {self._special_ability_name} on {player._name} dealing {self._special_ability_damage}!")
-        return self._special_ability_damage
+        return int(self._special_ability_damage)
 
 class Enderman(Mob):
     def __init__(self, *args):
@@ -256,7 +254,7 @@ class Enderman(Mob):
 
     def ability(self, player):
         print(f"{self._name} used {self._special_ability_name} on {player._name} dealing {self._special_ability_damage}!")
-        return self._special_ability_damage
+        return int(self._special_ability_damage)
 
 class Silverfish(Mob):
     def __init__(self, *args):
@@ -264,7 +262,7 @@ class Silverfish(Mob):
 
     def ability(self, player):
         print(f"{self._name} used {self._special_ability_name} on {player._name} dealing {self._special_ability_damage}!")
-        return self._special_ability_damage
+        return int(self._special_ability_damage)
 
 class Endermite(Mob):
     def __init__(self, *args):
@@ -272,7 +270,7 @@ class Endermite(Mob):
 
     def ability(self, player):
         print(f"{self._name} used {self._special_ability_name} on {player._name} dealing {self._special_ability_damage}!")
-        return self._special_ability_damage
+        return int(self._special_ability_damage)
 
 class Skulker(Mob):
     def __init__(self, *args):
@@ -280,7 +278,7 @@ class Skulker(Mob):
 
     def ability(self, player):
         print(f"{self._name} used {self._special_ability_name} on {player._name} dealing {self._special_ability_damage}!")
-        return self._special_ability_damage
+        return int(self._special_ability_damage)
 
 class EnderDragon(Mob):
     def __init__(self, *args):
@@ -288,7 +286,7 @@ class EnderDragon(Mob):
 
     def ability(self, player):
         print(f"{self._name} used {self._special_ability_name} on {player._name} dealing {self._special_ability_damage}!")
-        return self._special_ability_damage
+        return int(self._special_ability_damage)
 
 ### Mob Container Class ###
 
