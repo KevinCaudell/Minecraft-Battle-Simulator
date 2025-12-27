@@ -141,61 +141,137 @@ class Mob:
         return None
 
 class Zombie(Mob):
-    pass
+    def __init__(self, *args):
+        super().__init__(*args)
+
+    def ability(self, player):
+        pass
 
 class Skeleton(Mob):
-    pass
+    def __init__(self, *args):
+        super().__init__(*args)
+
+    def ability(self, player):
+        pass
 
 class Spider(Mob):
-    pass
+    def __init__(self, *args):
+        super().__init__(*args)
+
+    def ability(self, player):
+        pass
 
 class Creeper(Mob):
-    pass
+    def __init__(self, *args):
+        super().__init__(*args)
+
+    def ability(self, player):
+        pass
 
 class Witch(Mob):
-    pass
+    def __init__(self, *args):
+        super().__init__(*args)
+
+    def ability(self, player):
+        pass
 
 class Pillager(Mob):
-    pass
+    def __init__(self, *args):
+        super().__init__(*args)
+
+    def ability(self, player):
+        pass
 
 class Warden(Mob):
-    pass
+    def __init__(self, *args):
+        super().__init__(*args)
+
+    def ability(self, player):
+        pass
 
 class Blaze(Mob):
-    pass
+    def __init__(self, *args):
+        super().__init__(*args)
+
+    def ability(self, player):
+        pass
 
 class WitherSkeleton(Mob):
-    pass
+    def __init__(self, *args):
+        super().__init__(*args)
+
+    def ability(self, player):
+        pass
 
 class Hoglin(Mob):
-    pass
+    def __init__(self, *args):
+        super().__init__(*args)
+
+    def ability(self, player):
+        pass
 
 class Ghast(Mob):
-    pass
+    def __init__(self, *args):
+        super().__init__(*args)
+
+    def ability(self, player):
+        pass
 
 class MagmaCube(Mob):
-    pass
+    def __init__(self, *args):
+        super().__init__(*args)
+
+    def ability(self, player):
+        pass
 
 class Brute(Mob):
-    pass
+    def __init__(self, *args):
+        super().__init__(*args)
+
+    def ability(self, player):
+        pass
 
 class Wither(Mob):
-    pass
+    def __init__(self, *args):
+        super().__init__(*args)
+
+    def ability(self, player):
+        pass
 
 class Enderman(Mob):
-    pass
+    def __init__(self, *args):
+        super().__init__(*args)
+
+    def ability(self, player):
+        pass
 
 class Silverfish(Mob):
-    pass
+    def __init__(self, *args):
+        super().__init__(*args)
+
+    def ability(self, player):
+        pass
 
 class Endermite(Mob):
-    pass
+    def __init__(self, *args):
+        super().__init__(*args)
+
+    def ability(self, player):
+        pass
 
 class Skulker(Mob):
-    pass
+    def __init__(self, *args):
+        super().__init__(*args)
+
+    def ability(self, player):
+        pass
 
 class EnderDragon(Mob):
-    pass
+    def __init__(self, *args):
+        super().__init__(*args)
+
+    def ability(self, player):
+        pass
 
 ### Mob Container Class ###
 
