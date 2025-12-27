@@ -15,9 +15,8 @@ class Player:
 
     def attack(self, enemy):
         """Applied damage to enemy object."""
-        enemy._health -= self._attack_damage
         print(f'{self._name} attacked {enemy._name} using {self._attack_name} dealing {self._attack_damage}')
-        return None
+        return self._attack_damage
     
     def isAlive(self):
         """Checks to see if the character is alive."""
@@ -91,8 +90,8 @@ class Mage(Player):
     def skill(self, enemy, damage):
         """Blocking the enemy attack and counter attacks the enemy with their own attack for 25% of it's original damage."""
         return_damage = round(damage * 0.25)
-        enemy._health -= return_damage
         print(f'{self._name} blocked attack and countered, dealing {return_damage}hp to {enemy._name}')
+        return return_damage
 
 
 ### MOB CLASSES ###
@@ -113,9 +112,8 @@ class Mob:
 
     def attack(self, player):
         """Applied damage to player object."""
-        player._health -= self._attack_damage
         print(f'{self._name} attacked {player._name} using {self._attack_name} dealing {self._attack_damage}')
-        return None
+        return self._attack_damage
 
     def isAlive(self):
         """Checks to see if the mob is alive."""
@@ -145,133 +143,152 @@ class Zombie(Mob):
         super().__init__(*args)
 
     def ability(self, player):
-        pass
+        print(f"{self._name} used {self._special_ability_name} on {player._name} dealing {self._special_ability_damage}!")
+        return self._special_ability_damage
 
 class Skeleton(Mob):
     def __init__(self, *args):
         super().__init__(*args)
 
     def ability(self, player):
-        pass
+        print(f"{self._name} used {self._special_ability_name} on {player._name} dealing {self._special_ability_damage}!")
+        return self._special_ability_damage
 
 class Spider(Mob):
     def __init__(self, *args):
         super().__init__(*args)
 
     def ability(self, player):
-        pass
+        print(f"{self._name} used {self._special_ability_name} on {player._name} dealing {self._special_ability_damage}!")
+        return self._special_ability_damage
 
 class Creeper(Mob):
     def __init__(self, *args):
         super().__init__(*args)
 
     def ability(self, player):
-        pass
+        print(f"{self._name} used {self._special_ability_name} on {player._name} dealing {self._special_ability_damage}!")
+        return self._special_ability_damage
 
 class Witch(Mob):
     def __init__(self, *args):
         super().__init__(*args)
 
     def ability(self, player):
-        pass
+        print(f"{self._name} used {self._special_ability_name} on {player._name} dealing {self._special_ability_damage}!")
+        return self._special_ability_damage
 
 class Pillager(Mob):
     def __init__(self, *args):
         super().__init__(*args)
 
     def ability(self, player):
-        pass
+        print(f"{self._name} used {self._special_ability_name} on {player._name} dealing {self._special_ability_damage}!")
+        return self._special_ability_damage
 
 class Warden(Mob):
     def __init__(self, *args):
         super().__init__(*args)
 
     def ability(self, player):
-        pass
+        print(f"{self._name} used {self._special_ability_name} on {player._name} dealing {self._special_ability_damage}!")
+        return self._special_ability_damage
 
 class Blaze(Mob):
     def __init__(self, *args):
         super().__init__(*args)
 
     def ability(self, player):
-        pass
+        print(f"{self._name} used {self._special_ability_name} on {player._name} dealing {self._special_ability_damage}!")
+        return self._special_ability_damage
 
 class WitherSkeleton(Mob):
     def __init__(self, *args):
         super().__init__(*args)
 
     def ability(self, player):
-        pass
+        print(f"{self._name} used {self._special_ability_name} on {player._name} dealing {self._special_ability_damage}!")
+        return self._special_ability_damage
 
 class Hoglin(Mob):
     def __init__(self, *args):
         super().__init__(*args)
 
     def ability(self, player):
-        pass
+        print(f"{self._name} used {self._special_ability_name} on {player._name} dealing {self._special_ability_damage}!")
+        return self._special_ability_damage
 
 class Ghast(Mob):
     def __init__(self, *args):
         super().__init__(*args)
 
     def ability(self, player):
-        pass
+        print(f"{self._name} used {self._special_ability_name} on {player._name} dealing {self._special_ability_damage}!")
+        return self._special_ability_damage
 
 class MagmaCube(Mob):
     def __init__(self, *args):
         super().__init__(*args)
 
     def ability(self, player):
-        pass
+        print(f"{self._name} used {self._special_ability_name} on {player._name} dealing {self._special_ability_damage}!")
+        return self._special_ability_damage
 
 class Brute(Mob):
     def __init__(self, *args):
         super().__init__(*args)
 
     def ability(self, player):
-        pass
+        print(f"{self._name} used {self._special_ability_name} on {player._name} dealing {self._special_ability_damage}!")
+        return self._special_ability_damage
 
 class Wither(Mob):
     def __init__(self, *args):
         super().__init__(*args)
 
     def ability(self, player):
-        pass
+        print(f"{self._name} used {self._special_ability_name} on {player._name} dealing {self._special_ability_damage}!")
+        return self._special_ability_damage
 
 class Enderman(Mob):
     def __init__(self, *args):
         super().__init__(*args)
 
     def ability(self, player):
-        pass
+        print(f"{self._name} used {self._special_ability_name} on {player._name} dealing {self._special_ability_damage}!")
+        return self._special_ability_damage
 
 class Silverfish(Mob):
     def __init__(self, *args):
         super().__init__(*args)
 
     def ability(self, player):
-        pass
+        print(f"{self._name} used {self._special_ability_name} on {player._name} dealing {self._special_ability_damage}!")
+        return self._special_ability_damage
 
 class Endermite(Mob):
     def __init__(self, *args):
         super().__init__(*args)
 
     def ability(self, player):
-        pass
+        print(f"{self._name} used {self._special_ability_name} on {player._name} dealing {self._special_ability_damage}!")
+        return self._special_ability_damage
 
 class Skulker(Mob):
     def __init__(self, *args):
         super().__init__(*args)
 
     def ability(self, player):
-        pass
+        print(f"{self._name} used {self._special_ability_name} on {player._name} dealing {self._special_ability_damage}!")
+        return self._special_ability_damage
 
 class EnderDragon(Mob):
     def __init__(self, *args):
         super().__init__(*args)
 
     def ability(self, player):
-        pass
+        print(f"{self._name} used {self._special_ability_name} on {player._name} dealing {self._special_ability_damage}!")
+        return self._special_ability_damage
 
 ### Mob Container Class ###
 
