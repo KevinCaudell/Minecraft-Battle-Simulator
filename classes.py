@@ -104,6 +104,7 @@ class Mob:
         self._attack_damage = attack_damage
         self._defense = defense
         self._health = health
+        self._max_health = health
         self._attack_name = attack_name
         self._special_ability_name = special_ability_name
         self._special_ability_damage = special_ability_damage
@@ -330,7 +331,7 @@ class MobRealms(list):
 
     def remove(self, mob_obj):
         for realm in self:
-            for mob in realm:
-                if mob_obj == mob:
-                    self[realm].remove(mob_obj)
-                    return None
+            if mob_obj in realm:
+                realm.remove(mob_obj)
+                return True
+        return False
