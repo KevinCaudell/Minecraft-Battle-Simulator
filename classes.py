@@ -291,7 +291,7 @@ class Endermite(End):
         print(f"{self._name} used {self._special_ability_name} on {player._name} dealing {self._special_ability_damage}!")
         return int(self._special_ability_damage)
 
-class Skulker(End):
+class Shulker(End):
     def __init__(self, *args):
         super().__init__(*args)
 
