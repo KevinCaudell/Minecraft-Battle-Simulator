@@ -100,7 +100,7 @@ class Mob:
     ability_count = 4
 
     def __init__(self, name, attack_damage, defense, health, attack_name, special_ability_name, 
-                 special_ability_damage, realm, type):
+                 special_ability_damage, type):
         self._name = name
         self._attack_damage = attack_damage
         self._defense = defense
@@ -109,7 +109,6 @@ class Mob:
         self._attack_name = attack_name
         self._special_ability_name = special_ability_name
         self._special_ability_damage = special_ability_damage
-        self._mob_realm = realm
         self._type = type
 
     def attack(self, player):
