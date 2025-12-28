@@ -39,7 +39,7 @@ Endermite = C.Endermite('Endermite', 22, 0, 125, 'Ankle Bite', 'Teleportation Bi
 Shulker = C.Shulker('Shulker', 10, 15, 250, 'Air Slam', 'Multi-Shulker Attack', 110, 'non-boss')
 EnderDragon = C.EnderDragon('Ender Dragon', 60, 20, 525, 'Sweeping Wing', 'Ender Fireball', 132, 'boss')
 
-# Append to realm container class #
+### Append to realm container class ###
 
 realms = C.MobRealms()
 
@@ -85,18 +85,42 @@ while True:
     else:
         player = mage
 
-    print(f'You selected {player._name}!')
+    print(f"/nYou selected {player._name}!")
     break
 
 #######################
 
 ### Pick Realm ###
 
-print('Pick which realm to fight!')
-print('\n' + 'OverWorld | Nether | End ')
-choosen_realm = input('Type in realm here: ').split()
-print(f"You've chosen the {choosen_realm} realm!")
+print('\nPick which realm to fight!')
+print('\n' + 'Overworld | Nether | End ')
+while True: 
+    choosen_realm = input('Type in realm here: ').lower().strip()
+    if choosen_realm not in ('overworld', 'nether', 'end'):
+        print('\nInvalid realm choice!')
+        continue
 
+    print(f"\nYou've chosen the {choosen_realm.capitalize()} realm!")
+    break
 
+### Display Chosen Realm ###
+
+print(f'\n--- The {choosen_realm.capitalize()} ---')
+
+if choosen_realm == 'overworld':
+    print()
+    for mob in realms[0]:
+        print(mob._name)
+
+if choosen_realm == 'nether':
+    print()
+    for mob in realms[1]:
+        print(mob._name)
+
+if choosen_realm == 'end':
+    print()
+    for mob in realms[2]:
+        print(mob._name)
+    
 
 
