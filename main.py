@@ -7,7 +7,7 @@ import classes as C, battle_engine as BE
 ### Start Up ###
 
 print("Welcome to Minecraft Battle Simulator!")
-player_name = input("Enter your desired name here: ")
+player_name = input("Enter your username here: ")
 
 ################
 
@@ -24,6 +24,23 @@ mage = C.Mage('Mage', 40, 10, 175, 'Insant Damage Potion','Lightning Strike', 11
 warrior.stats()
 archer.stats()
 mage.stats()
+
+while True:
+    character_choice = input('Select your character by typing their name: ').lower().strip()
+
+    if character_choice not in ('warrior','archer','mage'):
+        print('Not a valid character choice!')
+        continue
+
+    if character_choice == 'warrior':
+        player = warrior
+    elif character_choice == 'archer':
+        player = archer
+    else:
+        player = mage
+
+    print(f'You selected {player._name}!')
+    break
 
 
 
