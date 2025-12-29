@@ -121,7 +121,7 @@ class Mob:
     def attack(self, player):
         """Applied damage to player object."""
         dmg = randint(self._attack_damage, self._attack_damage + 5)
-        print(f'{self._name} attacked {player._name} using {self._attack_name} dealing {self._attack_damage}\n')
+        print(f'{self._name} attacked {player._name} using {self._attack_name} dealing {dmg}\n')
         return int(self._attack_damage)
 
     def isAlive(self):

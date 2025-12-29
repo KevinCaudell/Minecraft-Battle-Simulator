@@ -19,22 +19,20 @@ def fight(player, mob):
         break
 
     if action == 'a':
-        sleep(0.5)
         dmg = player.attack(mob)
-        sleep(0.5)
+        sleep(1)
         mob.take_damage(dmg)
         mob.healthBar()
     else:
-        sleep(0.5)
         player.heal()
         player.healthBar()
     
     if not mob.isAlive():
         return None
 
-    sleep(0.5)
+    sleep(1)
     dmg = mob.attack(player)
-    sleep(0.5)
+    sleep(1)
     player.take_damage(dmg)
     player.healthBar()
     
