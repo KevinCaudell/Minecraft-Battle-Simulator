@@ -7,6 +7,9 @@ from random import randint
 ### PLAYER CLASSES ###
 class Player:
     skill_counter = 0
+    ability_counter = 0
+    max_skill_counter = 4
+    max_ability_counter = 3
 
     def __init__(self, name, attack_damage, defense, health, attack_name, 
                  special_ability_name, special_ability_damage):
@@ -104,7 +107,8 @@ class Mage(Player):
 ### MOB CLASSES ###
 
 class Mob:
-    ability_count = 0
+    ability_counter = 0
+    max_ability_counter = 4
 
     def __init__(self, name, attack_damage, defense, health, attack_name, special_ability_name, 
                  special_ability_damage, type):
@@ -200,6 +204,7 @@ class Pillager(Overworld):
         return int(self._special_ability_damage)
 
 class Warden(Overworld):
+    max_ability_count = 5
     def __init__(self, *args):
         super().__init__(*args)
 
@@ -262,6 +267,7 @@ class Brute(Nether):
         return int(self._special_ability_damage)
 
 class Wither(Nether):
+    max_ability_count = 5
     def __init__(self, *args):
         super().__init__(*args)
 
@@ -308,6 +314,8 @@ class Shulker(End):
         return int(self._special_ability_damage)
 
 class EnderDragon(End):
+    max_ability_count = 5
+
     def __init__(self, *args):
         super().__init__(*args)
 
