@@ -10,6 +10,7 @@ from random import choice
 
 def fight(player, mob):
     """Fight loop to enact the trade-off of attacks between mob and player."""
+
     while True:
         action = input(f"[A]ttack or [H]eal: ").strip().lower()
         print()
@@ -35,7 +36,11 @@ def fight(player, mob):
     sleep(1)
     player.take_damage(dmg)
     player.healthBar()
-    
+
+    player.skill_counter += 1
+    player.ability_counter += 1
+    mob.ability_count += 1
+
 
 def battle(player, mob):
     """A battle loop for each individual encounter between a player and a mob.
@@ -46,6 +51,9 @@ def battle(player, mob):
     print(choice(mob_messages))
 
     while True:
+        player.skill_counter = 0
+        player.ability_counter = 0
+        mob.ability_count = 0
         fight(player,mob)
         if not mob.isAlive():
             sleep(0.5)
