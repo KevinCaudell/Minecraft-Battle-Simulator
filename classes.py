@@ -1,6 +1,6 @@
 ### PLAYER CLASSES ###
 class Player:
-    skill_counter = 3
+    skill_counter = 0
 
     def __init__(self, name, attack_damage, defense, health, attack_name, 
                  special_ability_name, special_ability_damage):
@@ -97,7 +97,7 @@ class Mage(Player):
 ### MOB CLASSES ###
 
 class Mob:
-    ability_count = 4
+    ability_count = 0
 
     def __init__(self, name, attack_damage, defense, health, attack_name, special_ability_name, 
                  special_ability_damage, type):
