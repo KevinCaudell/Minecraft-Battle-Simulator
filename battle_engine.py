@@ -2,6 +2,7 @@
 
 import classes as C
 from time import sleep
+from random import choice 
 
 ###############
 
@@ -44,7 +45,7 @@ def battle(player, mob):
     
     mob_messages = [f"A {mob._name} has appeared!", f"You are approaching a {mob._name}"]
     sleep(0.5)
-    print(R.choice(mob_messages))
+    print(choice(mob_messages))
 
     while True:
         fight(player,mob)
