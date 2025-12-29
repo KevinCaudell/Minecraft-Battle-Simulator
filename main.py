@@ -1,6 +1,7 @@
 ### Imports ###
 
-import classes as C, battle_engine as BE
+import classes as C
+from battle_engine import battle
 
 ###############
 
@@ -110,7 +111,7 @@ def game(realms, warrior, archer, mage):
         ### Fight ###
 
         for mob in realms[realm_dict[choosen_realm]]:
-            result = BE.battle(player, mob)
+            result = battle(player, mob)
 
             if result == False:
                 return None

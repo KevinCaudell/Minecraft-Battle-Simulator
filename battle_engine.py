@@ -37,6 +37,7 @@ def fight(player, mob):
         sleep(1)
         mob.take_damage(dmg)
         mob.healthBar()
+        player.ability_counter += 1
     elif action == 's':
         dmg = player.special_attack(mob)
         sleep(1)
@@ -52,18 +53,19 @@ def fight(player, mob):
         return None
 
     sleep(1)
-    if mob.ability_counter == mob.max_ability_counter:
+    if mob.ability_counter >= mob.max_ability_counter:
         dmg = mob.special_attack(player)
         sleep(1)
         mob.ability_counter = 0
-        mob.take_damage(dmg)
-        mob.healthBar()
+        player.take_damage(dmg)
+        player.healthBar()
         mob_counter_bool = True
     else:
         dmg = mob.attack(player)
         sleep(1)
         player.take_damage(dmg)
         player.healthBar()
+        mob.ability_counter += 1
 
     if player_counter_bool == True:
         player_counter_bool = False
@@ -73,8 +75,8 @@ def fight(player, mob):
         mob_counter_bool = False
         mob.ability_counter = 0
 
-    player.ability_counter += 1
-    mob.ability_counter += 1
+    
+    
 
 
 def battle(player, mob):
@@ -86,8 +88,6 @@ def battle(player, mob):
     print(choice(mob_messages))
 
     while True:
-        player.ability_counter = 0
-        mob.ability_count = 0
         fight(player,mob)
         if not mob.isAlive():
             sleep(0.5)

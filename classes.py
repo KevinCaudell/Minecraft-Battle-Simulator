@@ -26,20 +26,20 @@ class Player:
         """Applied damage to enemy object."""
         dmg = randint(self._attack_damage, self._attack_damage + 10)
         print(f'{self._name} attacked {enemy._name} using {self._attack_name} dealing {dmg}\n')
-        return int(self._attack_damage)
+        return int(dmg)
     
     def isAlive(self):
         """Checks to see if the character is alive."""
         return self._health > 0
 
     def heal(self):
-        """Heals up to 50 health points to character."""
+        """Heals up to 75 health points to character."""
         if self._health == self._max_health:
             print('Health is full\n')
             return None
         
-        if self._health <= self._max_health - 50:
-            self._health += 50
+        if self._health <= self._max_health - 75:
+            self._health += 75
             print(f'Healed 50hp\nPlayer health at {self._health}\n')
             return None
         
@@ -126,7 +126,7 @@ class Mob:
         """Applied damage to player object."""
         dmg = randint(self._attack_damage, self._attack_damage + 5)
         print(f'{self._name} attacked {player._name} using {self._attack_name} dealing {dmg}\n')
-        return int(self._attack_damage)
+        return int(dmg)
 
     def isAlive(self):
         """Checks to see if the mob is alive."""
