@@ -42,7 +42,7 @@ class Player:
         print(f'{self._name} used {self._special_ability_name} on {enemy._name} dealing {self._special_ability_damage}\n')
         return int(self._special_ability_damage)
 
-    def health_bar(self):
+    def healthBar(self):
         """Prints a health bar for the characters health to max health ratio"""
         bar_length = 10
         health_ratio = self._health / self._max_health

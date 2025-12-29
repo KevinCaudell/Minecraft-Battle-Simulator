@@ -4,14 +4,7 @@ import classes as C, battle_engine as BE
 
 ###############
 
-def game():
-    ### Start Up ###
-
-    print("Welcome to Minecraft Battle Simulator!")
-    player_name = input("Enter your username here: ")
-
-    ################
-
+def initiliaze_game():
     ### Initialize Player Characters ###
 
     warrior = C.Warrior('Warrior', 45, 30, 250, 'Sword Slash','Rock Throw', 80)
@@ -64,8 +57,11 @@ def game():
     realms.append(Shulker)
     realms.append(EnderDragon)
 
+    return realms, warrior,archer,mage
+
     ####################################
 
+def game(realms, warrior, archer, mage):
     ### Pick character ###
     while True:
         warrior.stats()
@@ -117,23 +113,33 @@ def game():
             result = BE.battle(player, mob)
 
             if result == False:
-                answer = input("Would you like to play again? [Y]es or [N]o").lower().strip()
-                while True:
-                    if answer not in ('y','n'):
-                        print('Not a valid choice.')
-                        continue
-                    if answer == 'n':
-                        return None
-                    else:
-                        break
-
-
-                break
+                return None
+        
 
     #############
 
 def main():
-    game()
+    ### Start Up ###
+
+    print("Welcome to Minecraft Battle Simulator!")
+    player_name = input("Enter your username here: ")
+
+    ################
+    
+    while True:
+        realms, warrior, archer, mage = initiliaze_game()
+        game(realms, warrior, archer, mage)
+        print("Would you like to keep playing?")
+        while True:
+            answer = input("[Y]es or [N]o\n").lower().strip()
+            if answer not in ('y','n'):
+                print('Not a valid choice.')
+                continue
+            break
+        if answer == 'n':
+            break
+        
+    print("\n\n\nMinecraft Battle Simulator Stopped")
 
 if __name__ == '__main__':
     main()

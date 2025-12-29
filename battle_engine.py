@@ -11,6 +11,7 @@ def fight(player, mob):
     """Fight loop to enact the trade-off of attacks between mob and player."""
     while True:
         action = input(f"[A]ttack or [H]eal: ").strip().lower()
+        print()
         if action not in ('a', 'h'):
             print('Invalid selection.')
             continue
@@ -19,14 +20,17 @@ def fight(player, mob):
     if action == 'a':
         dmg = player.attack(mob)
         mob.take_damage(dmg)
+        mob.healthBar()
     else:
         player.heal()
+        player.healthBar()
     
     if not mob.isAlive():
         return None
 
     dmg = mob.attack(player)
     player.take_damage(dmg)
+    player.healthBar()
     
 
 def battle(player, mob):
