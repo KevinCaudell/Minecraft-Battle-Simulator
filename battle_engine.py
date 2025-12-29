@@ -12,9 +12,20 @@ def fight(player, mob):
     """Fight loop to enact the trade-off of attacks between mob and player."""
 
     while True:
-        action = input(f"[A]ttack or [H]eal: ").strip().lower()
-        print()
+
+        if player.ability_counter >= player.max_ability_counter:
+            action = input(f"[A]ttack or [H]eal or [S]pecial Attack: ").strip().lower()
+            print()
+        else:
+            action = input(f"[A]ttack or [H]eal: ").strip().lower()
+            print()
+
         if action not in ('a', 'h'):
+            if action == 's' and player.ability_counter < player.max_ability_counter:
+                print('Invalid selection.')
+                continue
+            elif action == 's':
+                break
             print('Invalid selection.')
             continue
         break
@@ -24,6 +35,13 @@ def fight(player, mob):
         sleep(1)
         mob.take_damage(dmg)
         mob.healthBar()
+    elif action == 's':
+        dmg = player.special_attack(mob)
+        sleep(1)
+        player.ability_counter = 0
+        mob.take_damage(dmg)
+        mob.healthBar()
+        player_counter_bool = True
     else:
         player.heal()
         player.healthBar()
@@ -32,14 +50,29 @@ def fight(player, mob):
         return None
 
     sleep(1)
-    dmg = mob.attack(player)
-    sleep(1)
-    player.take_damage(dmg)
-    player.healthBar()
+    if mob.ability_counter == mob.max_ability_counter:
+        dmg = mob.special_attack(player)
+        sleep(1)
+        mob.ability_counter = 0
+        mob.take_damage(dmg)
+        mob.healthBar()
+        mob_counter_bool = True
+    else:
+        dmg = mob.attack(player)
+        sleep(1)
+        player.take_damage(dmg)
+        player.healthBar()
 
-    player.skill_counter += 1
+    if player_counter_bool == True:
+        player_counter_bool = False
+        player.ability_counter = 0
+
+    if mob_counter_bool == True:
+        mob_counter_bool = False
+        mob.ability_counter = 0
+
     player.ability_counter += 1
-    mob.ability_count += 1
+    mob.ability_counter += 1
 
 
 def battle(player, mob):
@@ -51,17 +84,18 @@ def battle(player, mob):
     print(choice(mob_messages))
 
     while True:
-        player.skill_counter = 0
         player.ability_counter = 0
         mob.ability_count = 0
         fight(player,mob)
         if not mob.isAlive():
             sleep(0.5)
             print(f"\n{mob._name} has been slayed.")
+            player.skill_counter += 1
             return True
         if not player.isAlive():
             sleep(0.5)
             print(f"\n{player._name} has died.")
+            player.skill_counter = 0
             return False
             
 
