@@ -10,6 +10,8 @@ from random import choice
 
 def fight(player, mob):
     """Fight loop to enact the trade-off of attacks between mob and player."""
+    player_counter_bool = False
+    mob_counter_bool = False
 
     while True:
 
