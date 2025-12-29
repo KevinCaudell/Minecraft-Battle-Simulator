@@ -1,6 +1,6 @@
 ### Imports ###
 
-import random as R
+from random import randomint as RI
 
 ###############
 
@@ -21,7 +21,7 @@ class Player:
 
     def attack(self, enemy):
         """Applied damage to enemy object."""
-        dmg = R.randomint(self._attack_damage, self._attack_damage + 10)
+        dmg = RI.randomint(self._attack_damage, self._attack_damage + 10)
         print(f'{self._name} attacked {enemy._name} using {self._attack_name} dealing {dmg}\n')
         return int(self._attack_damage)
     
@@ -120,7 +120,7 @@ class Mob:
 
     def attack(self, player):
         """Applied damage to player object."""
-        dmg = R.randomint(self._attack_damage, self._attack_damage + 5)
+        dmg = RI.randomint(self._attack_damage, self._attack_damage + 5)
         print(f'{self._name} attacked {player._name} using {self._attack_name} dealing {self._attack_damage}\n')
         return int(self._attack_damage)
 
