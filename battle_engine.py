@@ -1,7 +1,7 @@
 ### Imports ###
 
 import classes as C
-import random as R
+from time import sleep
 
 ###############
 
@@ -18,17 +18,22 @@ def fight(player, mob):
         break
 
     if action == 'a':
+        sleep(0.5)
         dmg = player.attack(mob)
+        sleep(0.5)
         mob.take_damage(dmg)
         mob.healthBar()
     else:
+        sleep(0.5)
         player.heal()
         player.healthBar()
     
     if not mob.isAlive():
         return None
 
+    sleep(0.5)
     dmg = mob.attack(player)
+    sleep(0.5)
     player.take_damage(dmg)
     player.healthBar()
     
@@ -38,14 +43,17 @@ def battle(player, mob):
        Return True if mob was killed, False if player was killed."""
     
     mob_messages = [f"A {mob._name} has appeared!", f"You are approaching a {mob._name}"]
+    sleep(0.5)
     print(R.choice(mob_messages))
 
     while True:
         fight(player,mob)
         if not mob.isAlive():
+            sleep(0.5)
             print(f"\n{mob._name} has been slayed.")
             return True
         if not player.isAlive():
+            sleep(0.5)
             print(f"\n{player._name} has died.")
             return False
             
