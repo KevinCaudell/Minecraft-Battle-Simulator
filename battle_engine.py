@@ -1,6 +1,7 @@
 ### Imports ###
 
 import classes as C
+import random as R
 
 ###############
 
@@ -32,16 +33,16 @@ def battle(player, mob):
     """A battle loop for each individual encounter between a player and a mob.
        Return True if mob was killed, False if player was killed."""
     
-    mob_messages = {f"A {mob._name} has appeared!", f"You are approaching a {mob._name}"}
-    print(mob_messages[0])
+    mob_messages = [f"A {mob._name} has appeared!", f"You are approaching a {mob._name}"]
+    print(R.choice(mob_messages))
 
     while True:
         fight(player,mob)
         if not mob.isAlive():
-            print(f"{mob._name} has been slayed.")
+            print(f"\n{mob._name} has been slayed.")
             return True
         if not player.isAlive():
-            print(f"{player._name} has died.")
+            print(f"\n{player._name} has died.")
             return False
             
 

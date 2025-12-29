@@ -4,7 +4,7 @@ import classes as C, battle_engine as BE
 
 ###############
 
-def main():
+def game():
     ### Start Up ###
 
     print("Welcome to Minecraft Battle Simulator!")
@@ -67,56 +67,76 @@ def main():
     ####################################
 
     ### Pick character ###
-
-    warrior.stats()
-    archer.stats()
-    mage.stats()
-
     while True:
-        character_choice = input('Select your character by typing their name: ').lower().strip()
+        warrior.stats()
+        archer.stats()
+        mage.stats()
 
-        if character_choice not in ('warrior','archer','mage'):
-            print('Not a valid character choice!')
-            continue
+        while True:
+            character_choice = input('Select your character by typing their name: ').lower().strip()
 
-        if character_choice == 'warrior':
-            player = warrior
-        elif character_choice == 'archer':
-            player = archer
-        else:
-            player = mage
+            if character_choice not in ('warrior','archer','mage'):
+                print('Not a valid character choice!')
+                continue
 
-        print(f"/nYou selected {player._name}!")
-        break
+            if character_choice == 'warrior':
+                player = warrior
+            elif character_choice == 'archer':
+                player = archer
+            else:
+                player = mage
 
-    #######################
+            print(f"\nYou selected {player._name}!")
+            break
 
-    ### Pick Realm ###
+        #######################
 
-    realm_dict = {'overworld': 0, 'nether': 1, 'end': 2}
-    print('\nPick which realm to fight!')
-    print('\n' + 'Overworld | Nether | End ')
-    while True: 
-        choosen_realm = input('Type in realm here: ').lower().strip()
-        if choosen_realm not in realm_dict:
-            print('\nInvalid realm choice!')
-            continue
+        ### Pick Realm ###
 
-        print(f"\nYou've chosen the {choosen_realm.capitalize()} realm!")
-        break
+        realm_dict = {'overworld': 0, 'nether': 1, 'end': 2}
+        print('\nPick which realm to fight!')
+        print('\n' + 'Overworld | Nether | End ')
+        while True: 
+            choosen_realm = input('Type in realm here: ').lower().strip()
+            if choosen_realm not in realm_dict:
+                print('\nInvalid realm choice!')
+                continue
 
-    ### Display Chosen Realm ###
+            print(f"\nYou've chosen the {choosen_realm.capitalize()} realm!")
+            break
 
-    print(f'\n--- The {choosen_realm.capitalize()} ---\n\n\n')
+        ### Display Chosen Realm ###
 
-    ############################
+        print(f'\n--- The {choosen_realm.capitalize()} ---\n\n\n')
 
-    ### Fight ###
+        ############################
 
-    for mob in realms[realm_dict[choosen_realm]]:
-        BE.battle(player, mob)
+        ### Fight ###
+
+        for mob in realms[realm_dict[choosen_realm]]:
+            result = BE.battle(player, mob)
+
+            if result == False:
+                answer = input("Would you like to play again? [Y]es or [N]o").lower().strip()
+                while True:
+                    if answer not in ('y','n'):
+                        print('Not a valid choice.')
+                        continue
+                    if answer == 'n':
+                        return None
+                    else:
+                        break
+
+
+                break
 
     #############
+
+def main():
+    game()
+
+if __name__ == '__main__':
+    main()
 
 
     
