@@ -1,6 +1,7 @@
 ### Imports ###
 
 import classes as C
+from battle_engine import battle, fight
 
 ###############
 
@@ -72,8 +73,7 @@ def choose_gamemode():
 
     return selected_mode
 
-def single_realm_gamemode(realms, warrior, archer, mage):
-    ### Pick character ###
+def choose_character(warrior, archer, mage):
     while True:
         warrior.stats()
         archer.stats()
@@ -94,13 +94,12 @@ def single_realm_gamemode(realms, warrior, archer, mage):
                 player = mage
 
             print(f"\nYou selected {player.name}!")
-            break
+            return player.name
 
-        #######################
+def single_realm_gamemode(realms, player):
+    realm_dict = {'overworld': 0, 'nether': 1, 'end': 2}
 
-        ### Pick Realm ###
-
-        realm_dict = {'overworld': 0, 'nether': 1, 'end': 2}
+    while True:       
         print('\nPick which realm to fight!')
         print('\n' + 'Overworld | Nether | End ')
         while True: 
@@ -112,21 +111,35 @@ def single_realm_gamemode(realms, warrior, archer, mage):
             print(f"\nYou've chosen the {choosen_realm.capitalize()} realm!")
             break
 
-        ### Display Chosen Realm ###
+        print(f'\n--- The {choosen_realm.capitalize()} ---\n\n') # Displays Choosen Realm
 
-        print(f'\n--- The {choosen_realm.capitalize()} ---\n\n')
-
-        ############################
-
-        ### Fight ###
+        ### Battle Loop ###
 
         for mob in realms[realm_dict[choosen_realm]]:
             result = battle(player, mob)
 
-            if result == False:
-                return None
+            if result == False: # Player Died
+                return False
             
-        break
+        ####################
+            
+        print('Would you like to keep playing Single Realm gamemode?')
+        answer = input('[C]hange mode | [K]eep playing | [Q]uit').lower().strip()
+        while True:
+            if answer not in ('c','k','q'):
+                print('Invalid Choice')
+                continue
+            break
+        if answer == 'k':
+            continue
+        elif answer == 'c':
+            return False
+        else:
+            return 'quit'
         
 
-    #############
+def campaign_gamemode(realms, warrior, archer, mage):
+    pass
+
+def The_Pit_gamemode(realms, warrior, archer, mage):
+    ass
