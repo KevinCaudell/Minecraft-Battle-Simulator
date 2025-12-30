@@ -83,7 +83,7 @@ def battle(player, mob):
     """A battle loop for each individual encounter between a player and a mob.
        Return True if mob was killed, False if player was killed."""
     
-    mob_messages = [f"A {mob._name} has appeared!", f"You are approaching a {mob._name}"]
+    mob_messages = [f"A {mob.name} has appeared!", f"You are approaching a {mob.name}"]
     sleep(0.5)
     print(choice(mob_messages), '\n')
 
@@ -91,12 +91,12 @@ def battle(player, mob):
         fight(player,mob)
         if not mob.is_alive():
             sleep(0.5)
-            print(f"\n{mob._name} has been slayed.")
+            print(f"\n{mob.name} has been slayed.")
             player.skill_counter += 1
             return True
         if not player.is_alive():
             sleep(0.5)
-            print(f"\n{player._name} has died.")
+            print(f"\n{player.name} has died.")
             player.skill_counter = 0
             return False
             
