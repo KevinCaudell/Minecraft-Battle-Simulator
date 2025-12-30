@@ -138,8 +138,49 @@ def single_realm_gamemode(realms, player):
             return 'quit'
         
 
-def campaign_gamemode(realms, warrior, archer, mage):
-    pass
+def campaign_gamemode(realms, player):
+    print('\n--- Campaign ---\n\n')
+    while True:
+        input('Realm: Overworld')
+        for mob in realms[0]:
+            result = battle(player, mob)
+
+            if result == False: # Player Died
+                    return False
+            
+        input("You've conquered the Overworld Realm!")
+        input('Realm: Nether')
+        for mob in realms[1]:
+            result = battle(player, mob)
+
+            if result == False: # Player Died
+                    return False
+            
+        input("You've conquered the Nether Realm!")
+        input("Realm: End")
+        for mob in realms[2]:
+            result = battle(player, mob)
+
+            if result == False: # Player Died
+                    return False
+            
+        input("You've completed the Campaign!")
+
+        print('Would you like to keep playing Campaign?')
+        answer = input('[C]hange mode | [K]eep playing | [Q]uit').lower().strip()
+        while True:
+            if answer not in ('c','k','q'):
+                print('Invalid Choice')
+                continue
+            break
+        if answer == 'k':
+            continue
+        elif answer == 'c':
+            return False
+        else:
+            return 'quit'
+    
+
 
 def The_Pit_gamemode(realms, warrior, archer, mage):
-    ass
+    pass
