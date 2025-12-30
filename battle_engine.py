@@ -49,7 +49,7 @@ def fight(player, mob):
         player.heal()
         player.healthBar()
     
-    if not mob.isAlive():
+    if not mob.is_alive():
         return None
 
     sleep(1)
@@ -89,12 +89,12 @@ def battle(player, mob):
 
     while True:
         fight(player,mob)
-        if not mob.isAlive():
+        if not mob.is_alive():
             sleep(0.5)
             print(f"\n{mob._name} has been slayed.")
             player.skill_counter += 1
             return True
-        if not player.isAlive():
+        if not player.is_alive():
             sleep(0.5)
             print(f"\n{player._name} has died.")
             player.skill_counter = 0

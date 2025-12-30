@@ -28,7 +28,7 @@ class Player:
         print(f'{self._name} attacked {enemy._name} using {self._attack_name} dealing {dmg}\n')
         return int(dmg)
     
-    def isAlive(self):
+    def is_alive(self):
         """Checks to see if the character is alive."""
         return self._health > 0
 
@@ -130,7 +130,7 @@ class Mob:
         print(f'{self._name} attacked {player._name} using {self._attack_name} dealing {dmg}\n')
         return int(dmg)
 
-    def isAlive(self):
+    def is_alive(self):
         """Checks to see if the mob is alive."""
         return self._health > 0
 
