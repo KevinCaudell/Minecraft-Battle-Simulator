@@ -2,7 +2,7 @@
 
 import classes as C
 from battle_engine import battle
-from random import choice as R
+from random import choice 
 
 ###############
 
@@ -191,9 +191,11 @@ def The_Pit_gamemode(realms, player):
     print('\n--- The Pit ---\n\n')
 
     while True:
-        while len(all_mobs) > 0:
-            mob = R.choice(all_mobs)
+        all_mobs1 = all_mobs
+        while len(all_mobs1) > 0:
+            mob = choice(all_mobs1)
             result = battle(player, mob)
+            all_mobs1.remove(mob)
 
             if result == False: # Player Died
                     break
