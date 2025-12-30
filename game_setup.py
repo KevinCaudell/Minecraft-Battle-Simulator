@@ -1,7 +1,8 @@
 ### Imports ###
 
 import classes as C
-from battle_engine import battle, fight
+from battle_engine import battle
+from random import choice
 
 ###############
 
@@ -135,8 +136,7 @@ def single_realm_gamemode(realms, player):
         elif answer == 'c':
             return False
         else:
-            return 'quit'
-        
+            return 'quit'      
 
 def campaign_gamemode(realms, player):
     print('\n--- Campaign ---\n\n')
@@ -179,8 +179,33 @@ def campaign_gamemode(realms, player):
             return False
         else:
             return 'quit'
+
+def The_Pit_gamemode(realms, player):
+    all_mobs = [] # Stores all mobs in 1 list to be choosen from
+    for realm in realms:
+        for mob in realm:
+            all_mobs.append(mob)
+
+    print('\n--- The Pit ---\n\n')
     
+    while True:
+        while len(all_mobs) > 0:
+            mob = choice(all_mobs)
+            result = battle(player, mob)
 
+            if result == False: # Player Died
+                    break
 
-def The_Pit_gamemode(realms, warrior, archer, mage):
-    pass
+        print('Would you like to keep playing Campaign?')
+        answer = input('[C]hange mode | [K]eep playing | [Q]uit').lower().strip()
+        while True:
+            if answer not in ('c','k','q'):
+                print('Invalid Choice')
+                continue
+            break
+        if answer == 'k':
+            continue
+        elif answer == 'c':
+            return False
+        else:
+            return 'quit'
