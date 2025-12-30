@@ -115,6 +115,8 @@ def game(realms, warrior, archer, mage):
 
             if result == False:
                 return None
+            
+        break
         
 
     #############
