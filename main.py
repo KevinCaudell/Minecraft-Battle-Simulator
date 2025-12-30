@@ -83,7 +83,7 @@ def game(realms, warrior, archer, mage):
             else:
                 player = mage
 
-            print(f"\nYou selected {player._name}!")
+            print(f"\nYou selected {player.name}!")
             break
 
         #######################
