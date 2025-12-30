@@ -75,10 +75,6 @@ def fight(player, mob):
         mob_counter_bool = False
         mob.ability_counter = 0
 
-    
-    
-
-
 def battle(player, mob):
     """A battle loop for each individual encounter between a player and a mob.
        Return True if mob was killed, False if player was killed."""
