@@ -204,7 +204,7 @@ class Pillager(Overworld):
         return int(self._special_ability_damage)
 
 class Warden(Overworld):
-    max_ability_count = 5
+    max_ability_count = 6
     def __init__(self, *args):
         super().__init__(*args)
 
@@ -267,7 +267,7 @@ class Brute(Nether):
         return int(self._special_ability_damage)
 
 class Wither(Nether):
-    max_ability_count = 5
+    max_ability_count = 6
     def __init__(self, *args):
         super().__init__(*args)
 
@@ -314,7 +314,7 @@ class Shulker(End):
         return int(self._special_ability_damage)
 
 class EnderDragon(End):
-    max_ability_count = 5
+    max_ability_count = 6
 
     def __init__(self, *args):
         super().__init__(*args)
