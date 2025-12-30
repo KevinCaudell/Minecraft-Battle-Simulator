@@ -108,8 +108,6 @@ class Player:
     def special_ability_damage(self):
         return self._special_ability_damage
 
-
-
 class Warrior(Player):
     def __init__(self, *args):
         super().__init__(*args)
@@ -138,7 +136,6 @@ class Mage(Player):
         self._attack_damage += 5
         print(f"{self._name}\'s base attack has increased by 5!\n")
         return None
-
 
 ### MOB CLASSES ###
 
