@@ -25,7 +25,7 @@ class Player:
     def attack(self, enemy):
         """Applied damage to enemy object."""
         dmg = randint(self._attack_damage, self._attack_damage + 10)
-        print(f'{self._name} attacked {enemy._name} using {self._attack_name} dealing {dmg}\n')
+        print(f'{self._name} attacked {enemy.name} using {self._attack_name} dealing {dmg}\n')
         return int(dmg)
     
     def is_alive(self):
@@ -49,7 +49,7 @@ class Player:
 
     def special_attack(self, enemy):
         """Uses special ability on enemy dealing unique damage to them."""
-        print(f'{self._name} used {self._special_ability_name} on {enemy._name} dealing {self._special_ability_damage}\n')
+        print(f'{self._name} used {self._special_ability_name} on {enemy.name} dealing {self._special_ability_damage}\n')
         return int(self._special_ability_damage)
 
     def healthBar(self):
@@ -79,6 +79,35 @@ class Player:
     @property
     def name(self):
         return self._name
+
+    @property
+    def health(self):
+        return self._health
+
+    @property
+    def max_health(self):
+        return self._max_health
+
+    @property
+    def defense(self):
+        return self._defense
+
+    @property
+    def attack_damage(self):
+        return self._attack_damage
+
+    @property
+    def attack_name(self):
+        return self._attack_name
+
+    @property
+    def special_ability_name(self):
+        return self._special_ability_name
+
+    @property
+    def special_ability_damage(self):
+        return self._special_ability_damage
+
 
 
 class Warrior(Player):
@@ -132,7 +161,7 @@ class Mob:
     def attack(self, player):
         """Applied damage to player object."""
         dmg = randint(self._attack_damage, self._attack_damage + 5)
-        print(f'{self._name} attacked {player._name} using {self._attack_name} dealing {dmg}\n')
+        print(f'{self._name} attacked {player.name} using {self._attack_name} dealing {dmg}\n')
         return int(dmg)
 
     def is_alive(self):
@@ -141,7 +170,7 @@ class Mob:
 
     def special_attack(self, player):
         """Uses special ability on player dealing unique damage to them."""
-        print(f'{self._name} used {self._special_ability_name} on {player._name} dealing {self._special_ability_damage}\n')
+        print(f'{self._name} used {self._special_ability_name} on {player.name} dealing {self._special_ability_damage}\n')
         return int(self._special_ability_damage)
 
     def healthBar(self):
@@ -163,6 +192,35 @@ class Mob:
     def name(self):
         return self._name
 
+    @property
+    def health(self):
+        return self._health
+
+    @property
+    def max_health(self):
+        return self._max_health
+
+    @property
+    def defense(self):
+        return self._defense
+
+    @property
+    def attack_damage(self):
+        return self._attack_damage
+
+    @property
+    def attack_name(self):
+        return self._attack_name
+
+    @property
+    def special_ability_name(self):
+        return self._special_ability_name
+
+    @property
+    def special_ability_damage(self):
+        return self._special_ability_damage
+
+
 # Overworld Mobs #
 class Overworld(Mob):
     def __init__(self, *args):
@@ -173,7 +231,7 @@ class Zombie(Overworld):
         super().__init__(*args)
 
     def ability(self, player):
-        print(f"{self._name} used {self._special_ability_name} on {player._name} dealing {self._special_ability_damage}!\n")
+        print(f"{self._name} used {self._special_ability_name} on {player.name} dealing {self._special_ability_damage}!\n")
         return int(self._special_ability_damage)
     
 class Skeleton(Overworld):
@@ -181,7 +239,7 @@ class Skeleton(Overworld):
         super().__init__(*args)
 
     def ability(self, player):
-        print(f"{self._name} used {self._special_ability_name} on {player._name} dealing {self._special_ability_damage}!\n")
+        print(f"{self._name} used {self._special_ability_name} on {player.name} dealing {self._special_ability_damage}!\n")
         return int(self._special_ability_damage)
     
 class Spider(Overworld):
@@ -189,7 +247,7 @@ class Spider(Overworld):
         super().__init__(*args)
 
     def ability(self, player):
-        print(f"{self._name} used {self._special_ability_name} on {player._name} dealing {self._special_ability_damage}!\n")
+        print(f"{self._name} used {self._special_ability_name} on {player.name} dealing {self._special_ability_damage}!\n")
         return int(self._special_ability_damage)
 
 class Creeper(Overworld):
@@ -197,7 +255,7 @@ class Creeper(Overworld):
         super().__init__(*args)
 
     def ability(self, player):
-        print(f"{self._name} used {self._special_ability_name} on {player._name} dealing {self._special_ability_damage}!\n")
+        print(f"{self._name} used {self._special_ability_name} on {player.name} dealing {self._special_ability_damage}!\n")
         return int(self._special_ability_damage)
 
 class Witch(Overworld):
@@ -205,7 +263,7 @@ class Witch(Overworld):
         super().__init__(*args)
 
     def ability(self, player):
-        print(f"{self._name} used {self._special_ability_name} on {player._name} dealing {self._special_ability_damage}!\n")
+        print(f"{self._name} used {self._special_ability_name} on {player.name} dealing {self._special_ability_damage}!\n")
         return int(self._special_ability_damage)
 
 class Pillager(Overworld):
@@ -213,7 +271,7 @@ class Pillager(Overworld):
         super().__init__(*args)
 
     def ability(self, player):
-        print(f"{self._name} used {self._special_ability_name} on {player._name} dealing {self._special_ability_damage}!\n")
+        print(f"{self._name} used {self._special_ability_name} on {player.name} dealing {self._special_ability_damage}!\n")
         return int(self._special_ability_damage)
 
 class Warden(Overworld):
@@ -222,7 +280,7 @@ class Warden(Overworld):
         super().__init__(*args)
 
     def ability(self, player):
-        print(f"{self._name} used {self._special_ability_name} on {player._name} dealing {self._special_ability_damage}!\n")
+        print(f"{self._name} used {self._special_ability_name} on {player.name} dealing {self._special_ability_damage}!\n")
         return int(self._special_ability_damage)
 
 # Nether Mobs #
@@ -236,7 +294,7 @@ class Blaze(Nether):
         super().__init__(*args)
 
     def ability(self, player):
-        print(f"{self._name} used {self._special_ability_name} on {player._name} dealing {self._special_ability_damage}!\n")
+        print(f"{self._name} used {self._special_ability_name} on {player.name} dealing {self._special_ability_damage}!\n")
         return int(self._special_ability_damage)
 
 class WitherSkeleton(Nether):
@@ -244,7 +302,7 @@ class WitherSkeleton(Nether):
         super().__init__(*args)
 
     def ability(self, player):
-        print(f"{self._name} used {self._special_ability_name} on {player._name} dealing {self._special_ability_damage}!\n")
+        print(f"{self._name} used {self._special_ability_name} on {player.name} dealing {self._special_ability_damage}!\n")
         return int(self._special_ability_damage)
 
 class Hoglin(Nether):
@@ -252,7 +310,7 @@ class Hoglin(Nether):
         super().__init__(*args)
 
     def ability(self, player):
-        print(f"{self._name} used {self._special_ability_name} on {player._name} dealing {self._special_ability_damage}!\n")
+        print(f"{self._name} used {self._special_ability_name} on {player.name} dealing {self._special_ability_damage}!\n")
         return int(self._special_ability_damage)
 
 class Ghast(Nether):
@@ -260,7 +318,7 @@ class Ghast(Nether):
         super().__init__(*args)
 
     def ability(self, player):
-        print(f"{self._name} used {self._special_ability_name} on {player._name} dealing {self._special_ability_damage}!\n")
+        print(f"{self._name} used {self._special_ability_name} on {player.name} dealing {self._special_ability_damage}!\n")
         return int(self._special_ability_damage)
 
 class MagmaCube(Nether):
@@ -268,7 +326,7 @@ class MagmaCube(Nether):
         super().__init__(*args)
 
     def ability(self, player):
-        print(f"{self._name} used {self._special_ability_name} on {player._name} dealing {self._special_ability_damage}!\n")
+        print(f"{self._name} used {self._special_ability_name} on {player.name} dealing {self._special_ability_damage}!\n")
         return int(self._special_ability_damage)
 
 class Brute(Nether):
@@ -276,7 +334,7 @@ class Brute(Nether):
         super().__init__(*args)
 
     def ability(self, player):
-        print(f"{self._name} used {self._special_ability_name} on {player._name} dealing {self._special_ability_damage}!\n")
+        print(f"{self._name} used {self._special_ability_name} on {player.name} dealing {self._special_ability_damage}!\n")
         return int(self._special_ability_damage)
 
 class Wither(Nether):
@@ -285,7 +343,7 @@ class Wither(Nether):
         super().__init__(*args)
 
     def ability(self, player):
-        print(f"{self._name} used {self._special_ability_name} on {player._name} dealing {self._special_ability_damage}!\n")
+        print(f"{self._name} used {self._special_ability_name} on {player.name} dealing {self._special_ability_damage}!\n")
         return int(self._special_ability_damage)
 
 # End Mobs #
@@ -299,7 +357,7 @@ class Enderman(End):
         super().__init__(*args)
 
     def ability(self, player):
-        print(f"{self._name} used {self._special_ability_name} on {player._name} dealing {self._special_ability_damage}!\n")
+        print(f"{self._name} used {self._special_ability_name} on {player.name} dealing {self._special_ability_damage}!\n")
         return int(self._special_ability_damage)
 
 class Silverfish(End):
@@ -307,7 +365,7 @@ class Silverfish(End):
         super().__init__(*args)
 
     def ability(self, player):
-        print(f"{self._name} used {self._special_ability_name} on {player._name} dealing {self._special_ability_damage}!\n")
+        print(f"{self._name} used {self._special_ability_name} on {player.name} dealing {self._special_ability_damage}!\n")
         return int(self._special_ability_damage)
 
 class Endermite(End):
@@ -315,7 +373,7 @@ class Endermite(End):
         super().__init__(*args)
 
     def ability(self, player):
-        print(f"{self._name} used {self._special_ability_name} on {player._name} dealing {self._special_ability_damage}!\n")
+        print(f"{self._name} used {self._special_ability_name} on {player.name} dealing {self._special_ability_damage}!\n")
         return int(self._special_ability_damage)
 
 class Shulker(End):
@@ -323,7 +381,7 @@ class Shulker(End):
         super().__init__(*args)
 
     def ability(self, player):
-        print(f"{self._name} used {self._special_ability_name} on {player._name} dealing {self._special_ability_damage}!\n")
+        print(f"{self._name} used {self._special_ability_name} on {player.name} dealing {self._special_ability_damage}!\n")
         return int(self._special_ability_damage)
 
 class EnderDragon(End):
@@ -333,7 +391,7 @@ class EnderDragon(End):
         super().__init__(*args)
 
     def ability(self, player):
-        print(f"{self._name} used {self._special_ability_name} on {player._name} dealing {self._special_ability_damage}!\n")
+        print(f"{self._name} used {self._special_ability_name} on {player.name} dealing {self._special_ability_damage}!\n")
         return int(self._special_ability_damage)
 
 ### Mob Container Class ###
@@ -349,15 +407,15 @@ class MobRealms(list):
         
         if isinstance(mob_obj, Overworld):
             self[0].append(mob_obj)
-            return None
+            return True
 
         if isinstance(mob_obj, Nether):
             self[1].append(mob_obj)
-            return None
+            return True
 
         if isinstance(mob_obj, End):
             self[2].append(mob_obj)
-            return None
+            return True
 
     def remove(self, mob_obj):
         for realm in self:
