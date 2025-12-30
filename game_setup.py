@@ -2,7 +2,7 @@
 
 import classes as C
 from battle_engine import battle
-from random import choice
+from random import choice as R
 
 ###############
 
@@ -187,10 +187,10 @@ def The_Pit_gamemode(realms, player):
             all_mobs.append(mob)
 
     print('\n--- The Pit ---\n\n')
-    
+
     while True:
         while len(all_mobs) > 0:
-            mob = choice(all_mobs)
+            mob = R.choice(all_mobs)
             result = battle(player, mob)
 
             if result == False: # Player Died
