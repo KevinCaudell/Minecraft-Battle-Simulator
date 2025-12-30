@@ -40,7 +40,7 @@ class Player:
         
         if self._health <= self._max_health - 75:
             self._health += 75
-            print(f'Healed 50hp\nPlayer health at {self._health}\n')
+            print(f'Healed 75hp\nPlayer health at {self._health}\n')
             return None
         
         print(f'Healed {self._max_health - self._health}hp\nPlayer health is full\n')
