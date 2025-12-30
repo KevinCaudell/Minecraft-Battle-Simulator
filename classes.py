@@ -43,7 +43,7 @@ class Player:
             print(f'Healed 75hp\nPlayer health at {self._health}\n')
             return None
         
-        print(f'Healed {self._max_health - self._health}hp\nPlayer health is full\n')
+        print(f'Healed {round(self._max_health - self._health,2)}hp\nPlayer health is full\n')
         self._health = self._max_health
         return None
 
@@ -58,7 +58,7 @@ class Player:
         health_ratio = self._health / self._max_health
         filled_length = int(bar_length * health_ratio)
         bar_health = '[#]' * filled_length + '[ ]' * (bar_length - filled_length)
-        print(f"{self._name}'s Health: {bar_health} {self._health}/{self._max_health}\n")
+        print(f"{self._name}'s Health: {bar_health} {round(self._health, 2)}/{self._max_health}\n")
 
     def stats(self):
         """Displays statistics for character type."""
