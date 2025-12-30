@@ -70,8 +70,10 @@ class Player:
         print()
 
     def take_damage(self, damage):
-        """Applies damage to character from enemies attack."""
-        self._health -= damage
+        """Applies damage to character from enemies attack, based on defense of player."""
+        defence_percent = self._defense / 100
+        reduced = damage - (damage * defence_percent)
+        self._health -= reduced
         return None
 
 class Warrior(Player):
@@ -146,8 +148,10 @@ class Mob:
         print(f"{self._name}'s Health: {bar_health} {self._health}/{self._max_health}\n")
 
     def take_damage(self, damage):
-        """Applies damage to mob from player attack."""
-        self._health -= damage
+        """Applies damage to mob from player attack, based on defense of mob."""
+        defence_percent = self._defense / 100
+        reduced = damage - (damage * defence_percent)
+        self._health -= reduced
         return None
 
 # Overworld Mobs #
