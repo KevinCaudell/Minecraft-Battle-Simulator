@@ -59,3 +59,15 @@ def initiliaze_game():
     realms.append(EnderDragon)
 
     return realms, warrior,archer,mage
+
+def choose_game_mode():
+    modes = ('Single Realm', 'Campaign', 'The Pit')
+    print(f"Gamemodes: {modes[0]} | {modes[1]} | {modes[2]}")
+    selected_mode = input('Select gamemode: ').lower().strip().title
+    while True:
+        if selected_mode not in modes:
+            print('Invalid Choice.')
+            continue
+        break
+
+    return selected_mode
