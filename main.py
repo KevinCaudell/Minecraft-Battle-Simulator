@@ -2,7 +2,7 @@
 
 import classes as C
 from battle_engine import battle
-from game_setup import initiliaze_game, choose_gamemode, single_realm_gamemode, campaign_gamemode, The_Pit_gamemode
+from game_setup import initiliaze_game, choose_gamemode, single_realm_gamemode, campaign_gamemode, The_Pit_gamemode, choose_character
 
 ###############
 
@@ -14,12 +14,13 @@ def main():
         realms, warrior, archer, mage = initiliaze_game() # Initiliazes mobs and characters.
 
         gamemode = choose_gamemode() # Selects gamemode.
+        player = choose_character(warrior, archer, mage)
         if gamemode == 'Single Realm':
-            option = single_realm_gamemode(realms, warrior, archer, mage)
+            option = single_realm_gamemode(realms, player)
         elif gamemode == 'Campaign':
-            option = campaign_gamemode
+            option = campaign_gamemode(realms, player)
         else:
-            option = The_Pit_gamemode
+            option = The_Pit_gamemode(realms, player)
 
         if option == 'quit':
             return None

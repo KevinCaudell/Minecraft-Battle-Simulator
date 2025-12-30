@@ -64,15 +64,17 @@ def initiliaze_game():
 
 def choose_gamemode():
     modes = ('Single Realm', 'Campaign', 'The Pit')
-    print(f"Gamemodes: {modes[0]} | {modes[1]} | {modes[2]}")
-    selected_mode = input('Select gamemode: ').lower().strip().title
+    dict1 = {1: 'Single Realm', 2: 'Campaign', 3: 'The Pit'}
+    print(f"Gamemodes: {modes[0]} [1] | {modes[1]} [2] | {modes[2]} [3]")
     while True:
-        if selected_mode not in modes:
+        selected_mode = int(input('Select gamemode: '))
+        print()
+        if selected_mode not in (1,2,3):
             print('Invalid Choice.')
             continue
         break
 
-    return selected_mode
+    return dict1[selected_mode]
 
 def choose_character(warrior, archer, mage):
     while True:
@@ -95,7 +97,7 @@ def choose_character(warrior, archer, mage):
                 player = mage
 
             print(f"\nYou selected {player.name}!")
-            return player.name
+            return player
 
 def single_realm_gamemode(realms, player):
     realm_dict = {'overworld': 0, 'nether': 1, 'end': 2}
