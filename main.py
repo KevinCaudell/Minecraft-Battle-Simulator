@@ -104,7 +104,7 @@ def game(realms, warrior, archer, mage):
 
         ### Display Chosen Realm ###
 
-        print(f'\n--- The {choosen_realm.capitalize()} ---\n\n\n')
+        print(f'\n--- The {choosen_realm.capitalize()} ---\n\n')
 
         ############################
 

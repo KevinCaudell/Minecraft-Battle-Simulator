@@ -85,7 +85,7 @@ def battle(player, mob):
     
     mob_messages = [f"A {mob._name} has appeared!", f"You are approaching a {mob._name}"]
     sleep(0.5)
-    print(choice(mob_messages))
+    print(choice(mob_messages), '\n')
 
     while True:
         fight(player,mob)
