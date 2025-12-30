@@ -60,7 +60,7 @@ def initiliaze_game():
 
     return realms, warrior,archer,mage
 
-def choose_game_mode():
+def choose_gamemode():
     modes = ('Single Realm', 'Campaign', 'The Pit')
     print(f"Gamemodes: {modes[0]} | {modes[1]} | {modes[2]}")
     selected_mode = input('Select gamemode: ').lower().strip().title
