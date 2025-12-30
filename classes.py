@@ -76,6 +76,11 @@ class Player:
         self._health -= reduced
         return None
 
+    @property
+    def name(self):
+        return self._name
+
+
 class Warrior(Player):
     def __init__(self, *args):
         super().__init__(*args)
@@ -99,11 +104,11 @@ class Mage(Player):
     def __init__(self, *args):
         super().__init__(*args)
 
-    def skill(self, enemy, damage):
-        """Blocking the enemy attack and counter attacks the enemy with their own attack for 25% of it's original damage."""
-        return_damage = round(damage * 0.25)
-        print(f'{self._name} blocked attack and countered, dealing {return_damage}hp to {enemy._name}\n')
-        return return_damage
+    def skill(self):
+        """Adds damage to base attack damage"""
+        self._attack_damage += 5
+        print(f"{self._name}\'s base attack has increased by 5!\n")
+        return None
 
 
 ### MOB CLASSES ###
@@ -153,6 +158,10 @@ class Mob:
         reduced = damage - (damage * defence_percent)
         self._health -= reduced
         return None
+    
+    @property
+    def name(self):
+        return self._name
 
 # Overworld Mobs #
 class Overworld(Mob):
