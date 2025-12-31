@@ -117,16 +117,12 @@ def single_realm_gamemode(realms, player):
 
         for mob in realms[realm_dict[choosen_realm]]:
             result = battle(player, mob)
-            if player.skill_counter == player.max_skill_counter:
-                player.skill()
-                input('Click enter to continue')
-                player.skill_counter = 0
-            else:
-                player.skill_counter += 1
 
             if result == False: # Player Died
-                player.skill_counter = 0
+                player.skill_exp = 0
                 return False
+            
+            check_skill(player, mob)
             
         ####################
             
@@ -218,3 +214,13 @@ def The_Pit_gamemode(realms, player):
         else:
             return 'quit'
 
+def check_skill(player, mob):
+    player.skill_exp += mob.exp
+    
+    while True:
+        if player.skill_exp >= player.max_skill_exp:
+            player.skill()
+            player.skill_exp -= player.max_skill_exp
+    
+        if player.skill_exp < player.max_skill_exp:
+            break

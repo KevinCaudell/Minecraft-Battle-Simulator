@@ -98,3 +98,16 @@ def choose_character(warrior, archer, mage):
 
             print(f"\nYou selected {player.name}!")
             return player
+
+def check_skill(player, mob):
+    player.skill_exp += mob.exp
+    
+    while True:
+        if player.skill_exp >= player.max_skill_exp:
+            player.skill()
+            player.skill_exp -= player.max_skill_exp
+    
+        if player.skill_exp < player.max_skill_exp:
+            break
+    
+    

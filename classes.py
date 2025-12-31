@@ -6,9 +6,9 @@ from random import randint
 
 ### PLAYER CLASSES ###
 class Player:
-    skill_counter = 0
+    skill_exp = 0
     ability_counter = 0
-    max_skill_counter = 4
+    max_skill_exp = 100
     max_ability_counter = 3
 
     def __init__(self, name, attack_damage, defense, health, attack_name, 
@@ -220,6 +220,7 @@ class Mob:
 
 # Overworld Mobs #
 class Overworld(Mob):
+    exp = 30
     def __init__(self, *args):
         super().__init__(*args)
 
@@ -256,6 +257,7 @@ class Creeper(Overworld):
         return int(self._special_ability_damage)
 
 class Witch(Overworld):
+    exp = 40
     def __init__(self, *args):
         super().__init__(*args)
 
@@ -264,6 +266,7 @@ class Witch(Overworld):
         return int(self._special_ability_damage)
 
 class Pillager(Overworld):
+    exp = 45
     def __init__(self, *args):
         super().__init__(*args)
 
@@ -272,6 +275,7 @@ class Pillager(Overworld):
         return int(self._special_ability_damage)
 
 class Warden(Overworld):
+    exp = 85
     max_ability_count = 6
     def __init__(self, *args):
         super().__init__(*args)
@@ -283,6 +287,7 @@ class Warden(Overworld):
 # Nether Mobs #
 
 class Nether(Mob):
+    exp = 35
     def __init__(self, *args):
         super().__init__(*args)
 
@@ -295,6 +300,7 @@ class Blaze(Nether):
         return int(self._special_ability_damage)
 
 class WitherSkeleton(Nether):
+    exp = 40
     def __init__(self, *args):
         super().__init__(*args)
 
@@ -311,6 +317,7 @@ class Hoglin(Nether):
         return int(self._special_ability_damage)
 
 class Ghast(Nether):
+    exp = 40
     def __init__(self, *args):
         super().__init__(*args)
 
@@ -319,6 +326,7 @@ class Ghast(Nether):
         return int(self._special_ability_damage)
 
 class MagmaCube(Nether):
+    exp = 50
     def __init__(self, *args):
         super().__init__(*args)
 
@@ -327,6 +335,7 @@ class MagmaCube(Nether):
         return int(self._special_ability_damage)
 
 class Brute(Nether):
+    exp = 55
     def __init__(self, *args):
         super().__init__(*args)
 
@@ -335,6 +344,7 @@ class Brute(Nether):
         return int(self._special_ability_damage)
 
 class Wither(Nether):
+    exp = 100
     max_ability_count = 6
     def __init__(self, *args):
         super().__init__(*args)
@@ -346,6 +356,7 @@ class Wither(Nether):
 # End Mobs #
 
 class End(Mob):
+    exp = 35
     def __init__(self, *args):
         super().__init__(*args)
 
@@ -374,6 +385,7 @@ class Endermite(End):
         return int(self._special_ability_damage)
 
 class Shulker(End):
+    exp = 45
     def __init__(self, *args):
         super().__init__(*args)
 
@@ -382,6 +394,7 @@ class Shulker(End):
         return int(self._special_ability_damage)
 
 class EnderDragon(End):
+    exp = 200
     max_ability_count = 6
 
     def __init__(self, *args):
