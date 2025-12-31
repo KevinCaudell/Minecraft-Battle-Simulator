@@ -123,7 +123,7 @@ class Archer(Player):
         super().__init__(*args)
 
     def skill(self):
-        """Dodges attack."""
+        """Dodges attack.""" # Change this method
         print(f'{self._name} dodged attack!\n')
         return None
 
