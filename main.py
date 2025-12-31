@@ -1,8 +1,8 @@
 ### Imports ###
 
 import classes as C
-from battle_engine import battle
-from game_setup import initiliaze_game, choose_gamemode, single_realm_gamemode, campaign_gamemode, The_Pit_gamemode, choose_character
+from battle_engine import battle, single_realm_gamemode, campaign_gamemode, The_Pit_gamemode
+from game_setup import initiliaze_game, choose_gamemode, choose_character
 
 ###############
 
