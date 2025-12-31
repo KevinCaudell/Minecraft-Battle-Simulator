@@ -176,7 +176,7 @@ class Mob:
         health_ratio = self._health / self._max_health
         filled_length = int(bar_length * health_ratio)
         bar_health = '[#]' * filled_length + '[ ]' * (bar_length - filled_length)
-        print(f"{self._name}'s Health: {bar_health} {self._health}/{self._max_health}\n")
+        print(f"{self._name}'s Health: {bar_health} {round(self._health, 2)}/{self._max_health}\n")
 
     def take_damage(self, damage):
         """Applies damage to mob from player attack, based on defense of mob."""
