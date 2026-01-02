@@ -6,15 +6,15 @@ from game_setup import initiliaze_game, choose_gamemode, choose_character
 
 ###############
 
-def main():
+def main():      # Full game function
     print("Welcome to Minecraft Battle Simulator!")
     player_name = input("Enter your username here: ")
-    
-    while True:
-        realms, warrior, archer, mage = initiliaze_game() # Initiliazes mobs and characters.
 
-        gamemode = choose_gamemode() # Selects gamemode.
-        player = choose_character(warrior, archer, mage)
+    while True:   # Game loop
+        realms, warrior, archer, mage = initiliaze_game()    # Initiliazes mobs and characters.
+
+        gamemode = choose_gamemode()                         # Selects gamemode.
+        player = choose_character(warrior, archer, mage)     # Selects player's character
         if gamemode == 'Single Realm':
             option = single_realm_gamemode(realms, player)
         elif gamemode == 'Campaign':
@@ -31,7 +31,7 @@ def main():
             if player_answer == 'q':
                 return None
 
-if __name__ == '__main__':
+if __name__ == '__main__':       # Runs game
     main()
     print("\n\n\nMinecraft Battle Simulator Stopped")
 
