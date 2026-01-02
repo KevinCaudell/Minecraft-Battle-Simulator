@@ -10,6 +10,7 @@ class Player:
     ability_counter = 0
     max_skill_exp = 100
     max_ability_counter = 3
+    max_defense = 50
 
     def __init__(self, name, attack_damage, defense, health, attack_name, 
                  special_ability_name, special_ability_damage):
@@ -72,7 +73,7 @@ class Player:
     def take_damage(self, damage):
         """Applies damage to character from enemies attack, based on defense of player."""
         defence_percent = self._defense / 100
-        reduced = damage - (damage * defence_percent)
+        reduced = int(round(damage - (damage * defence_percent), 0))
         self._health -= reduced
         return None
 
@@ -114,8 +115,11 @@ class Warrior(Player):
 
     def skill(self):
         '''Gains resistence by increasing defense by 10.'''
-        self._defense += 10
-        print(f'{self._name}\'s defense has been increased by 10!\n')
+        if self._defense >= self.max_defense:
+            print(f"{self._name}\'s defense is already maxed out.")
+        else:
+            self._defense += 10
+            print(f'{self._name}\'s defense has been increased by 10!\n')
         return None
 
 class Archer(Player):
@@ -181,7 +185,7 @@ class Mob:
     def take_damage(self, damage):
         """Applies damage to mob from player attack, based on defense of mob."""
         defence_percent = self._defense / 100
-        reduced = damage - (damage * defence_percent)
+        reduced = int(round(damage - (damage * defence_percent),2))
         self._health -= reduced
         return None
     
