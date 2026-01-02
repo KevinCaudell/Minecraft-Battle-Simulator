@@ -120,6 +120,8 @@ def single_realm_gamemode(realms, player):
                 player.skill_exp = 0
                 return False
             
+            realms.remove(mob)
+            
             check_skill(player, mob)
             
         ####################
@@ -148,6 +150,8 @@ def campaign_gamemode(realms, player):
             if result == False: # Player Died
                     return False
             
+            realms.remove(mob)
+            
         input("You've conquered the Overworld Realm!")
         input('Realm: Nether')
         for mob in realms[1]:
@@ -156,6 +160,8 @@ def campaign_gamemode(realms, player):
             if result == False: # Player Died
                     return False
             
+            realms.remove(mob)
+            
         input("You've conquered the Nether Realm!")
         input("Realm: End")
         for mob in realms[2]:
@@ -163,6 +169,8 @@ def campaign_gamemode(realms, player):
 
             if result == False: # Player Died
                     return False
+            
+            realms.remove(mob)
             
         input("You've completed the Campaign!")
 
