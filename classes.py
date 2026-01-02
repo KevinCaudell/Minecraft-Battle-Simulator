@@ -145,13 +145,19 @@ class Archer(Player):
         return None
 
 class Mage(Player):
+    skill_count = 0
+    max_skill_count = 4
     def __init__(self, *args):
         super().__init__(*args)
 
     def skill(self):
-        """Adds damage to base attack damage"""
-        self._attack_damage += 5
-        print(f"{self._name}\'s base attack has increased by 5!\n")
+        """Adds damage to base special attack damage"""
+        if self.skill_count > self.max_skill_count:
+            print(f"{self._name}\'s special attack is already maxed out.")
+        else:
+            self._special_ability_damage += 15
+            print(f"{self._name}\'s special attack has increased by 5!\n")
+            Mage.skill_count += 1
         return None
 
 ### MOB CLASSES ###
