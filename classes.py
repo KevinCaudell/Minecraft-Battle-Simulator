@@ -5,13 +5,13 @@ from time import sleep
 
 ###############
 
-### PLAYER CLASSES ###
-class Player:
-    skill_exp = 0
-    ability_counter = 0
-    max_skill_exp = 100
-    max_ability_counter = 3
-    max_defense = 50
+### PLAYER CLASSES (START) ###
+class Player:                            # Player Parent Class
+    skill_exp = 0                        # starting exp
+    max_skill_exp = 100                  # Max exo needed to upgrade skill and stats
+    ability_counter = 0                  # Starting special attack counter
+    max_ability_counter = 3              # Max special attack to indicate if players special attack can be used.
+    max_defense = 50                     # Limits defense to 50% reduction
 
     def __init__(self, name, attack_damage, defense, health, attack_name, 
                  special_ability_name, special_ability_damage):
@@ -26,7 +26,7 @@ class Player:
         self._dodge_chance = 5
 
     def attack(self, enemy):
-        """Applied damage to enemy object."""
+        """Calculates damage to apply to enemy object."""
         dmg = randint(self._attack_damage, self._attack_damage + 10)
         print(f'{self._name} attacked {enemy.name} using {self._attack_name} dealing {dmg}\n')
         return int(dmg)
@@ -51,7 +51,7 @@ class Player:
         return None
 
     def special_attack(self, enemy):
-        """Uses special ability on enemy dealing unique damage to them."""
+        """Calculates special attack damage to apply to mob object."""
         print(f'{self._name} used {self._special_ability_name} on {enemy.name} dealing {self._special_ability_damage}\n')
         return int(self._special_ability_damage)
 
@@ -88,6 +88,7 @@ class Player:
         return None
 
     def upgrade_stats(self):
+        """Allows player to choose which stat to upgrade, damage, or health."""
         print('Upgrade Available!\n')
         sleep(1)
 
@@ -145,7 +146,7 @@ class Warrior(Player):
         super().__init__(*args)
 
     def skill(self):
-        '''Gains resistence by increasing defense by 10.'''
+        '''Increasing defense by 10.'''
         if self._defense >= self.max_defense:
             print(f"{self._name}\'s defense is already maxed out.")
         else:
@@ -173,8 +174,8 @@ class Mage(Player):
     def __init__(self, *args):
         super().__init__(*args)
 
-    def skill(self):
-        """Adds damage to base special attack damage"""
+    def skill(self):                                                         
+        """Increases damage to special attack damage"""
         if self.skill_count > self.max_skill_count:
             print(f"{self._name}\'s special attack is already maxed out.")
         else:
@@ -183,11 +184,13 @@ class Mage(Player):
             Mage.skill_count += 1
         return None
 
-### MOB CLASSES ###
+### PLAYER CLASSES (END) ###
 
-class Mob:
-    ability_counter = 0
-    max_ability_counter = 4
+### MOB CLASSES (START) ###
+
+class Mob:                                  # Mob parent class           
+    ability_counter = 0                     # Starting ability counter for each mob
+    max_ability_counter = 4                 # Maximum ability counter used to allow mobs, special attack method
 
     def __init__(self, name, attack_damage, defense, health, attack_name, special_ability_name, 
                  special_ability_damage, type):
@@ -201,8 +204,8 @@ class Mob:
         self._special_ability_damage = special_ability_damage
         self._type = type
 
-    def attack(self, player):
-        """Applied damage to player object."""
+    def attack(self, player):                                                                     
+        """Calculates damage to be applied to player."""
         dmg = randint(self._attack_damage, self._attack_damage + 5)
         print(f'{self._name} attacked {player.name} using {self._attack_name} dealing {dmg}\n')
         return int(dmg)
@@ -212,7 +215,7 @@ class Mob:
         return self._health > 0
 
     def special_attack(self, player):
-        """Uses special ability on player dealing unique damage to them."""
+        """Calculates special attack damage."""
         print(f'{self._name} used {self._special_ability_name} on {player.name} dealing {self._special_ability_damage}\n')
         return int(self._special_ability_damage)
 
@@ -263,9 +266,8 @@ class Mob:
     def special_ability_damage(self):
         return self._special_ability_damage
 
-
-# Overworld Mobs #
-class Overworld(Mob):
+# Overworld Mobs (Start) #
+class Overworld(Mob):                         # Classifies following Mobs as OVERWORLD REALM
     exp = 30
     def __init__(self, *args):
         super().__init__(*args)
@@ -330,9 +332,10 @@ class Warden(Overworld):
         print(f"{self._name} used {self._special_ability_name} on {player.name} dealing {self._special_ability_damage}!\n")
         return int(self._special_ability_damage)
 
-# Nether Mobs #
+# Overworld Mobs (End) #
 
-class Nether(Mob):
+# Nether Mobs (Start) #
+class Nether(Mob):                       # Classifies following Mobs as NETHER REALM
     exp = 35
     def __init__(self, *args):
         super().__init__(*args)
@@ -399,9 +402,11 @@ class Wither(Nether):
         print(f"{self._name} used {self._special_ability_name} on {player.name} dealing {self._special_ability_damage}!\n")
         return int(self._special_ability_damage)
 
-# End Mobs #
+# Nether Mobs (End) #
 
-class End(Mob):
+# End Mobs (Start) #
+
+class End(Mob):                         # Classifies following Mobs as END REALM
     exp = 35
     def __init__(self, *args):
         super().__init__(*args)
@@ -450,14 +455,15 @@ class EnderDragon(End):
         print(f"{self._name} used {self._special_ability_name} on {player.name} dealing {self._special_ability_damage}!\n")
         return int(self._special_ability_damage)
 
-### Mob Container Class ###
+# End Mobs (End) #
 
-class MobRealms(list):
+### MOB CONTAINER CLASS (START)###
+class MobRealms(list):                                   # Container for mob objects to be stored in their respective realms.
     def __init__(self, name='Mob Realm Container'):
         super().__init__([[],[],[]])
         self._name = name
 
-    def append(self, mob_obj):
+    def append(self, mob_obj):                           # Appends mob object to appropriate realm list.
         if not isinstance(mob_obj, Mob):
             return False, 'Object not of class Mob'
         
@@ -473,9 +479,11 @@ class MobRealms(list):
             self[2].append(mob_obj)
             return True
 
-    def remove(self, mob_obj):
+    def remove(self, mob_obj):                           # removes mob object from it's realm list.
         for realm in self:
             if mob_obj in realm:
                 realm.remove(mob_obj)
                 return True
         return False
+    
+### MOB CONTAINER CLASS (END) ###
