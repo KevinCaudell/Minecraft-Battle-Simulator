@@ -103,6 +103,7 @@ def check_skill(player, mob):
     
     while True:
         if player.skill_exp >= player.max_skill_exp:
+            player.upgrade_stats()
             player.skill()
             player.skill_exp -= player.max_skill_exp
             player.max_skill_exp += 20

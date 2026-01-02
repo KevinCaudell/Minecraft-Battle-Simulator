@@ -123,6 +123,7 @@ def single_realm_gamemode(realms, player):
             
             realms[realm_dict[chosen_realm]].remove(mob)
             
+            
             check_skill(player, mob)
             
         ####################

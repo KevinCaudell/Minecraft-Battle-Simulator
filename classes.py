@@ -96,21 +96,17 @@ class Player:
             if result not in ('1','2'):
                 print('Invalid Choice')
                 continue
+            break
 
-            if result == '1':
-                self.attack_damage += 5
-                print(f'{self.attack_name} has increased by 5!')
+        if result == '1':
+            self.attack_damage += 5
+            print(f'{self.attack_name} has increased by 5!')
 
-            if result == '2':
-                self._max_health += 15
-                print(f'{self._max_health} has increased by 15!')
+        if result == '2':
+            self._max_health += 15
+            print(f'{self._max_health} has increased by 15!')
 
-            return None
-            
-
-            
-        
-
+        return None
 
     @property
     def name(self):
