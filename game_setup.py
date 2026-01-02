@@ -6,14 +6,17 @@ from random import choice
 ###############
 
 
-def initiliaze_game():
-    ### Initialize Player Characters ###
+def initiliaze_game():     # Initiliazes all class objects
+    """Initiliazes all class objects."""
+    ### Initialize Player Characters (Start) ###
 
     warrior = C.Warrior('Warrior', 45, 30, 250, 'Sword Slash','Rock Throw', 100)
     archer = C.Archer('Archer', 30, 20, 200, 'Bow Shot','Triple Shot', 120)
     mage = C.Mage('Mage', 40, 10, 175, 'Insant Damage Potion','Lightning Strike', 115)
 
-    ### Initliaze Mob Characters ###
+    ### Initialize Player Characters (End) ###
+
+    ### Initliaze Mob Characters (Start) ###
 
     Zombie = C.Zombie('Zombie', 35, 10, 200, 'Claw Slash', 'Infected Bite', 75,'non-boss')
     Skeleton = C.Skeleton('Skeleton', 32, 2, 175, 'Bow Shot', 'Poison Arrow', 90, 'non-boss')
@@ -35,7 +38,9 @@ def initiliaze_game():
     Shulker = C.Shulker('Shulker', 10, 15, 250, 'Air Slam', 'Multi-Shulker Attack', 110, 'non-boss')
     EnderDragon = C.EnderDragon('Ender Dragon', 650, 20, 525, 'Sweeping Wing', 'Ender Fireball', 132, 'boss')
 
-    ### Append to realm container class ###
+    ### Initliaze Mob Characters (End) ###
+
+    ### Append to realm container class (Start) ###
 
     realms = C.MobRealms()
 
@@ -61,7 +66,10 @@ def initiliaze_game():
 
     return realms, warrior,archer,mage
 
-def choose_gamemode():
+    ### Append to realm container class (Start) ###
+
+def choose_gamemode():     # Prompts player to select a gamemode.
+    """Displays gamemodes to be selected."""   
     modes = ('Single Realm', 'Campaign', 'The Pit')
     dict1 = {1: 'Single Realm', 2: 'Campaign', 3: 'The Pit'}
     print(f"Gamemodes: {modes[0]} [1] | {modes[1]} [2] | {modes[2]} [3]")
@@ -75,7 +83,8 @@ def choose_gamemode():
 
     return dict1[selected_mode]
 
-def choose_character(warrior, archer, mage):
+def choose_character(warrior, archer, mage):  # Prompts to select desired character.
+    """Displays character stats and prompts them to select their desired character."""
     while True:
         warrior.stats()
         archer.stats()
@@ -98,7 +107,8 @@ def choose_character(warrior, archer, mage):
             print(f"\nYou Selected: {player.name}!")
             return player
 
-def check_skill(player, mob):
+def check_skill(player, mob):   # Checks players exp level
+    """Adds mobs exp to players exp level, and upgrades players stats and skill if level is high enough."""
     player.skill_exp += mob.exp
     
     while True:
