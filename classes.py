@@ -1,6 +1,7 @@
 ### Imports ###
 
 from random import randint
+from time import sleep
 
 ###############
 
@@ -85,6 +86,31 @@ class Player:
 
         self._health -= reduced
         return None
+
+    def upgrade_stats(self):
+        print('Upgrade Available!\n')
+        sleep(1)
+
+        while True:
+            result = input(f'{self._attack_name} [1] |  Max Health [2]')
+            if result not in ('1','2'):
+                print('Invalid Choice')
+                continue
+
+            if result == '1':
+                self.attack_damage += 5
+                print(f'{self.attack_name} has increased by 5!')
+
+            if result == '2':
+                self._max_health += 15
+                print(f'{self._max_health} has increased by 15!')
+
+            return None
+            
+
+            
+        
+
 
     @property
     def name(self):
