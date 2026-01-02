@@ -88,12 +88,10 @@ def battle(player, mob):
         if not mob.is_alive():
             sleep(0.5)
             print(f"\n{mob.name} has been slayed.")
-            player.skill_counter += 1
             return True
         if not player.is_alive():
             sleep(0.5)
             print(f"\n{player.name} has died.")
-            player.skill_counter = 0
             return False
             
 def single_realm_gamemode(realms, player):
