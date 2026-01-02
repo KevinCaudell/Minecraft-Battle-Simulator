@@ -13,7 +13,7 @@ class Player:
     max_defense = 50
 
     def __init__(self, name, attack_damage, defense, health, attack_name, 
-                 special_ability_name, special_ability_damage):
+                 special_ability_name, special_ability_damage, dodge_chance):
         self._name = name
         self._attack_damage = attack_damage
         self._defense = defense
@@ -22,6 +22,7 @@ class Player:
         self._attack_name = attack_name
         self._special_ability_name = special_ability_name
         self._special_ability_damage = special_ability_damage
+        self._dodge_chance = 5
 
     def attack(self, enemy):
         """Applied damage to enemy object."""
@@ -71,10 +72,17 @@ class Player:
         print()
 
     def take_damage(self, damage):
-        """Applies damage to character from enemies attack, based on defense of player."""
+        """Applies damage to character from enemies attack, based on defense of player.
+            May dodge attack to take 0 damage.
+        """
         defence_percent = self._defense / 100
         reduced = int(round(damage - (damage * defence_percent), 0))
         self._health -= reduced
+
+        dodge = randint(0,100)
+        if dodge <= self._dodge_chance:
+            print(f'Attack dodged, {self._name} has taken 0 damage!')
+            reduced = 0
         return None
 
     @property
@@ -127,8 +135,9 @@ class Archer(Player):
         super().__init__(*args)
 
     def skill(self):
-        """Dodges attack.""" # Change this method
-        print(f'{self._name} dodged attack!\n')
+        """Increases dodge chance by 5%.""" # Change this method
+        self._dodge_chance += 0.5
+        print(f'{self._name} dodge chances has increased by 5%\n')
         return None
 
 class Mage(Player):
