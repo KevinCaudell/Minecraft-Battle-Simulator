@@ -3,6 +3,7 @@
 import classes as C
 from time import sleep
 from random import choice 
+from game_setup import check_skill
 
 ###############
 
@@ -101,34 +102,33 @@ def single_realm_gamemode(realms, player):
         print('\nPick which realm to fight!')
         print('\n' + 'Overworld | Nether | End ')
         while True: 
-            choosen_realm = input('Type in realm here: ').lower().strip()
-            if choosen_realm not in realm_dict:
+            chosen_realm = input('Type in realm here: ').lower().strip()
+            if chosen_realm not in realm_dict:
                 print('\nInvalid realm choice!')
                 continue
 
-            print(f"\nYou've chosen the {choosen_realm.capitalize()} realm!")
+            print(f"\nYou've chosen the {chosen_realm.capitalize()} realm!")
             break
 
-        print(f'\n--- The {choosen_realm.capitalize()} ---\n\n') # Displays Choosen Realm
+        print(f'\n--- The {chosen_realm.capitalize()} ---\n\n') # Displays Choosen Realm
 
         ### Battle Loop ###
 
-        for mob in realms[realm_dict[choosen_realm]]:
+        for mob in realms[realm_dict[chosen_realm]][:]:
             result = battle(player, mob)
 
             if result == False: # Player Died
                 player.skill_exp = 0
                 return False
             
-            realms.remove(mob)
+            realms[realm_dict[chosen_realm]].remove(mob)
             
             check_skill(player, mob)
             
         ####################
-            
-        print('Would you like to keep playing Single Realm gamemode?')
-        answer = input('[C]hange mode | [K]eep playing | [Q]uit').lower().strip()
-        while True:
+        while True: 
+            print('Would you like to keep playing Single Realm gamemode?')
+            answer = input('[C]hange mode | [K]eep playing | [Q]uit').lower().strip()
             if answer not in ('c','k','q'):
                 print('Invalid Choice')
                 continue
@@ -144,39 +144,40 @@ def campaign_gamemode(realms, player):
     print('\n--- Campaign ---\n\n')
     while True:
         input('Realm: Overworld')
-        for mob in realms[0]:
+        for mob in realms[0][:]:
             result = battle(player, mob)
 
             if result == False: # Player Died
                     return False
             
-            realms.remove(mob)
+            realms[0].remove(mob)
             
         input("You've conquered the Overworld Realm!")
         input('Realm: Nether')
-        for mob in realms[1]:
+        for mob in realms[1][:]:
             result = battle(player, mob)
 
             if result == False: # Player Died
                     return False
             
-            realms.remove(mob)
+            realms[1].remove(mob)
             
         input("You've conquered the Nether Realm!")
         input("Realm: End")
-        for mob in realms[2]:
+        for mob in realms[2][:]:
             result = battle(player, mob)
 
             if result == False: # Player Died
                     return False
             
-            realms.remove(mob)
+            realms[2].remove(mob)
             
         input("You've completed the Campaign!")
 
-        print('Would you like to keep playing Campaign?')
-        answer = input('[C]hange mode | [K]eep playing | [Q]uit').lower().strip()
-        while True:
+        while True: 
+            print('Would you like to keep playing Campaign?')
+            answer = input('[C]hange mode | [K]eep playing | [Q]uit').lower().strip()
+        
             if answer not in ('c','k','q'):
                 print('Invalid Choice')
                 continue
@@ -197,7 +198,7 @@ def The_Pit_gamemode(realms, player):
     print('\n--- The Pit ---\n\n')
 
     while True:
-        all_mobs1 = all_mobs
+        all_mobs1 = all_mobs[:]
         while len(all_mobs1) > 0:
             mob = choice(all_mobs1)
             result = battle(player, mob)
@@ -206,9 +207,9 @@ def The_Pit_gamemode(realms, player):
             if result == False: # Player Died
                     break
 
-        print('Would you like to keep playing Campaign?')
-        answer = input('[C]hange mode | [K]eep playing | [Q]uit').lower().strip()
         while True:
+            print('Would you like to keep playing Campaign?')
+            answer = input('[C]hange mode | [K]eep playing | [Q]uit').lower().strip()
             if answer not in ('c','k','q'):
                 print('Invalid Choice')
                 continue
@@ -220,13 +221,3 @@ def The_Pit_gamemode(realms, player):
         else:
             return 'quit'
 
-def check_skill(player, mob):
-    player.skill_exp += mob.exp
-    
-    while True:
-        if player.skill_exp >= player.max_skill_exp:
-            player.skill()
-            player.skill_exp -= player.max_skill_exp
-    
-        if player.skill_exp < player.max_skill_exp:
-            break

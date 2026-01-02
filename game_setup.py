@@ -1,7 +1,6 @@
 ### Imports ###
 
 import classes as C
-from battle_engine import battle
 from random import choice 
 
 ###############
