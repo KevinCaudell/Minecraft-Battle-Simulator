@@ -92,14 +92,14 @@ class Player:
         sleep(1)
 
         while True:
-            result = input(f'{self._attack_name} [1] |  Max Health [2]')
+            result = input(f'{self._attack_name} +5 [1] |  Max Health +15 [2]')
             if result not in ('1','2'):
                 print('Invalid Choice')
                 continue
             break
 
         if result == '1':
-            self.attack_damage += 5
+            self._attack_damage += 5
             print(f'{self.attack_name} has increased by 5!')
 
         if result == '2':
