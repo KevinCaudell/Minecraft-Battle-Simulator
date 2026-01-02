@@ -131,13 +131,17 @@ class Warrior(Player):
         return None
 
 class Archer(Player):
+    max_dodge_chance = 25
     def __init__(self, *args):
         super().__init__(*args)
 
     def skill(self):
-        """Increases dodge chance by 5%.""" # Change this method
-        self._dodge_chance += 0.5
-        print(f'{self._name} dodge chances has increased by 5%\n')
+        """Increases dodge chance by 5%.""" 
+        if self._dodge_chance < self.max_dodge_chance:
+            self._dodge_chance += 0.5
+            print(f'{self._name} dodge chances has increased by 5%\n')
+        else:
+            print(f"{self._name}\'s dodge is already maxed out.")
         return None
 
 class Mage(Player):
