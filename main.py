@@ -30,7 +30,6 @@ def main():
             player_answer = input('[q] to quit | [any key] to continue.')
             if player_answer == 'q':
                 return None
-            continue
 
 if __name__ == '__main__':
     main()
