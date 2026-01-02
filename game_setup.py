@@ -105,6 +105,7 @@ def check_skill(player, mob):
         if player.skill_exp >= player.max_skill_exp:
             player.skill()
             player.skill_exp -= player.max_skill_exp
+            player.max_skill_exp += 20
     
         if player.skill_exp < player.max_skill_exp:
             break
