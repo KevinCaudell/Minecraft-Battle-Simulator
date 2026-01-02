@@ -95,7 +95,7 @@ def choose_character(warrior, archer, mage):
             else:
                 player = mage
 
-            print(f"\nYou selected {player.name}!")
+            print(f"\nYou Selected: {player.name}!")
             return player
 
 def check_skill(player, mob):

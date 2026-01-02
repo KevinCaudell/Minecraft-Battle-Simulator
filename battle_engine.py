@@ -151,6 +151,7 @@ def campaign_gamemode(realms, player):
                     return False
             
             realms[0].remove(mob)
+            check_skill(player)
             
         input("You've conquered the Overworld Realm!")
         input('Realm: Nether')
@@ -161,6 +162,7 @@ def campaign_gamemode(realms, player):
                     return False
             
             realms[1].remove(mob)
+            check_skill(player)
             
         input("You've conquered the Nether Realm!")
         input("Realm: End")
@@ -171,6 +173,7 @@ def campaign_gamemode(realms, player):
                     return False
             
             realms[2].remove(mob)
+            check_skill(player)
             
         input("You've completed the Campaign!")
 
@@ -206,6 +209,8 @@ def The_Pit_gamemode(realms, player):
 
             if result == False: # Player Died
                     break
+            
+            check_skill(player)
 
         while True:
             print('Would you like to keep playing Campaign?')

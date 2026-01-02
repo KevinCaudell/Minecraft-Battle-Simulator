@@ -13,7 +13,7 @@ class Player:
     max_defense = 50
 
     def __init__(self, name, attack_damage, defense, health, attack_name, 
-                 special_ability_name, special_ability_damage, dodge_chance):
+                 special_ability_name, special_ability_damage):
         self._name = name
         self._attack_damage = attack_damage
         self._defense = defense
@@ -77,12 +77,13 @@ class Player:
         """
         defence_percent = self._defense / 100
         reduced = int(round(damage - (damage * defence_percent), 0))
-        self._health -= reduced
 
         dodge = randint(0,100)
         if dodge <= self._dodge_chance:
             print(f'Attack dodged, {self._name} has taken 0 damage!')
             reduced = 0
+
+        self._health -= reduced
         return None
 
     @property
