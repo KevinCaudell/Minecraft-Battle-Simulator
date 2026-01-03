@@ -12,7 +12,7 @@ A Minecraft themed battle simulator built using Python to demonstrate Object-Ori
 - Modular & reusable code
 
 
-# Skill Demonstrated
+# Skills Demonstrated
 # - Object-Oriented Programming #
   - Classes & Objects
   - Inheritences (Custom classes / built-in classes)
