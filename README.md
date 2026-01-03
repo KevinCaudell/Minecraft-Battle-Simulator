@@ -6,25 +6,25 @@ A Minecraft themed battle simulator built using Python to demonstrate Object-Ori
 - Multiple battle rounds + gamemodes
 - Custom character classes using inheritence
 - Level up progression system
-- Ability cooldown & counter mechanics
+- Ability cooldown and counter mechanics
 - Randomized attacks for dynamic, unpredictable battles
-- Polymorphic ability & attack handling
-- Modular & reusable code
+- Polymorphic ability and attack handling
+- Modular and reusable code
 
 
 # Skills Demonstrated
 # - Object-Oriented Programming #
-  - Classes & Objects
+  - Classes and Objects
   - Inheritences (Custom classes / built-in classes)
   - Polymorphism 
   - Encapsulation
   - Modular class design
   - Dunder methods (__init__, __str__)
-- Game state & combat loop architecture
+- Game state and combat loop architecture
 - Randomized combat algorithms.
 - Loop and state management
 - Modular project structure
-- Code organization & readability
+- Code organization and readability
 
 # Technologies Used
 - Python
