@@ -19,7 +19,7 @@ A Minecraft themed battle simulator built using Python to demonstrate Object-Ori
   - Polymorphism 
   - Encapsulation
   - Modular class design
-  - Dunder methods
+  - Dunder methods (__init__, __str__)
 - Game state & combat loop architecture
 - Randomized combat algorithms.
 - Loop and state management
