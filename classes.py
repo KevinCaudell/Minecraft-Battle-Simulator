@@ -64,7 +64,6 @@ class Player:                            # Player Parent Class
         print(f"{self._name}'s Health: {bar_health} {round(self._health, 2)}/{self._max_health}\n")
 
     def __str__(self):
-        """Displays statistics for character type."""
         return (
             f"Name: {self._name}\n"
             f"Health: {self._max_health}\n"
