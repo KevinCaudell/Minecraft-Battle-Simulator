@@ -63,14 +63,15 @@ class Player:                            # Player Parent Class
         bar_health = '[#]' * filled_length + '[ ]' * (bar_length - filled_length)
         print(f"{self._name}'s Health: {bar_health} {round(self._health, 2)}/{self._max_health}\n")
 
-    def stats(self):
+    def __str__(self):
         """Displays statistics for character type."""
-        print(f'Name: {self._name}')
-        print(f'    Health: {self._max_health}')
-        print(f'    Defense: {self._defense}')
-        print(f'    Attack Damage: {self._attack_damage}')
-        print(f'    Ability Damage: {self._special_ability_damage}')
-        print()
+        return (
+            f"Name: {self._name}\n"
+            f"Health: {self._max_health}\n"
+            f"Defense: {self._defense}\n"
+            f"Attack Damage: {self._attack_damage}\n"
+            f"Ability Damage: {self._special_ability_damage}\n"
+            )
 
     def take_damage(self, damage):
         """Applies damage to character from enemies attack, based on defense of player.

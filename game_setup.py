@@ -86,9 +86,9 @@ def choose_gamemode():     # Prompts player to select a gamemode.
 def choose_character(warrior, archer, mage):  # Prompts to select desired character.
     """Displays character stats and prompts them to select their desired character."""
     while True:
-        warrior.stats()
-        archer.stats()
-        mage.stats()
+        print(warrior)
+        print(archer)
+        print(mage)
 
         while True:
             character_choice = input('Select your character by typing their name: ').lower().strip()
